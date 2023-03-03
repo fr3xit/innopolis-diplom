@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 
 import Products from '../pages/products/Products';
 
