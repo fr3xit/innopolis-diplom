@@ -1,0 +1,9 @@
+.ProductsList {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 35px 15px;
+
+	>div {
+		border: 1px solid var(--c-accent);
+	}
+}

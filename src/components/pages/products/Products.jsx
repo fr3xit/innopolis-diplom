@@ -1,4 +1,4 @@
-import ProductsList from '../../blocks/ProductsList';
+import ProductsList from '../../blocks/ProductsList/ProductsList';
 
 function Products() {
 	return (

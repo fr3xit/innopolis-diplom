@@ -1,0 +1,78 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	max-width: 312px;
+	min-height: 552px;
+	padding: 36px 21px;
+	padding-top: 43px;
+}
+.img {
+	margin-bottom: 31px;
+}
+
+.main {
+	flex: 1 1 auto;
+}
+
+.title {
+	margin-bottom: 15px;
+
+	cursor: pointer;
+	transition: var(--t-animation) linear;
+}
+
+.title:hover {
+	color: var(--c-accent);
+}
+
+.desc {
+	font-size: 14px;
+}
+
+.footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.priceText {
+	font-size: 21px;
+}
+.amountText {
+	font-size: 14px;
+}
+.button {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 30px;
+	height: 30px;
+
+	border-radius: 50%;
+	border: 1px solid #fff;
+	cursor: pointer;
+
+	transition: var(--t-animation) linear;
+}
+
+.button:hover {
+	background-color: var(--c-accent);
+}
+
+.lineOne,
+.lineTwo {
+	display: inline-block;
+	width: 13px;
+	height: 2px;
+	border-radius: 3px;
+
+	background-color: #fff;
+}
+
+.lineTwo {
+	position: absolute;
+	transform: rotate(90deg);
+}
