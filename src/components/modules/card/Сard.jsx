@@ -12,10 +12,16 @@ function Card({
 }) {
 	let dimension = 'шт';
 
+	alt = alt ? alt : title;
+
 	switch (units) {
 		case 'grams':
 			dimension = 'г';
 			break;
+	}
+
+	if (title.length > 25) {
+		title = title.substring(0, 25) + '...';
 	}
 
 	return (
