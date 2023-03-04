@@ -1,0 +1,44 @@
+.products {
+	position: relative;
+	max-width: 1300px;
+	margin: 0 auto;
+}
+
+.header {
+	position: fixed;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	max-width: 1300px;
+	padding: 50px 0;
+	background-color: var(--c-bg);
+}
+
+.main {
+	padding-top: 173px;
+}
+
+.title {
+	font-size: 31px;
+	text-transform: uppercase;
+}
+
+.basket {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+	padding-left: 30px;
+	text-align: right;
+	border-radius: 30px;
+	cursor: pointer;
+	transition: var(--t-animation) linear;
+}
+
+.basket:hover {
+	background-color: var(--c-accent);
+}
+
+.basket::after {
+	content: url('../../../../public/img/basket.svg');
+}

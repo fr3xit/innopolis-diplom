@@ -1,4 +1,4 @@
-import s from './Сard.module.css';
+import s from './Сard.module.scss';
 
 function Card({
 	data: {
