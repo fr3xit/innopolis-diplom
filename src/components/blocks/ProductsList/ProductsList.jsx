@@ -1,6 +1,8 @@
 import s from './ProductsList.module.scss';
 import Card from '../../modules/card/Сard';
-import { productsData as data } from '../../../data/data';
+
+// import { productsData as data } from '../../../data/data';
+let data = require('../../../data/productsData.json');
 
 function ProductsList() {
 	return (

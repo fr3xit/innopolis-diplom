@@ -10,7 +10,7 @@ function Card({
 		img: { url, alt },
 	},
 }) {
-	let dimension = 'шт';
+	let dimension;
 
 	alt = alt ? alt : title;
 
@@ -18,6 +18,12 @@ function Card({
 		case 'grams':
 			dimension = 'г';
 			break;
+		case 'pieces':
+			dimension = 'шт';
+			break;
+		default: {
+			dimension = 'шт';
+		}
 	}
 
 	if (title.length > 25) {
