@@ -5,7 +5,6 @@ import ProductsList from '../../blocks/ProductsList/ProductsList';
 function Products() {
 	let sum = 3500;
 	let product = 3;
-
 	return (
 		<div className={s.products}>
 			<header className={s.header}>
@@ -24,5 +23,12 @@ function Products() {
 		</div>
 	);
 }
+
+//  Фикс отступа
+setTimeout(() => {
+	const $headerHeight = document.querySelector(`.${s.header}`);
+	const $main = document.querySelector(`.${s.main}`);
+	$main.style.paddingTop = `${$headerHeight.offsetHeight}px`;
+}, 10);
 
 export default Products;

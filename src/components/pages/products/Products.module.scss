@@ -6,22 +6,23 @@
 
 .header {
 	position: fixed;
+	z-index: 1000;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
 	max-width: 1300px;
-	padding: 50px 0;
 	background-color: var(--c-bg);
 }
 
 .main {
-	padding-top: 173px;
+	border: 1 px solid;
 }
 
 .title {
 	font-size: 31px;
 	text-transform: uppercase;
+	padding: 50px 0;
 }
 
 .basket {
