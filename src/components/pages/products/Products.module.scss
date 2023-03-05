@@ -38,6 +38,7 @@
 
 .basket:hover {
 	background-color: var(--c-accent);
+	box-shadow: 0 0 10px var(--c-accent);
 }
 
 .basket::after {

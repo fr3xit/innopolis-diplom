@@ -1,4 +1,5 @@
 .card {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -6,7 +7,14 @@
 	min-height: 552px;
 	padding: 36px 21px;
 	padding-top: 43px;
+	transition: var(--t-animation) linear;
 }
+
+.card:hover {
+	box-shadow: 0 0 15px var(--c-bg2);
+	background-color: var(--c-bg2);
+}
+
 .img {
 	margin-bottom: 31px;
 }
@@ -39,9 +47,11 @@
 .priceText {
 	font-size: 21px;
 }
+
 .amountText {
 	font-size: 14px;
 }
+
 .button {
 	position: relative;
 	display: flex;
@@ -59,6 +69,7 @@
 
 .button:hover {
 	background-color: var(--c-accent);
+	transform: scale(1.2);
 }
 
 .lineOne,
