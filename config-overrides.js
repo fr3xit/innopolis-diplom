@@ -2,6 +2,7 @@ const { alias } = require('react-app-rewire-alias');
 
 const aliasMap = {
 	'@data': 'src/data',
+	'@js': 'src/js',
 	'@page': 'src/components/page',
 	'@global': 'src/components/global',
 	'@modules': 'src/components/modules',

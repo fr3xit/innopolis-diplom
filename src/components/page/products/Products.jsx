@@ -6,6 +6,7 @@ import styles from './Products.module.scss';
 const Products = function () {
 	return (
 		<>
+			<header>header</header>
 			<Container child={ProductsList} />
 		</>
 	);

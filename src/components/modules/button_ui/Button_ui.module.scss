@@ -1,0 +1,44 @@
+.button {
+	display: inline-block;
+	padding: 5px;
+
+	&:hover .button__inner {
+		background-color: var(--c-accent);
+		transform: scale(1.2);
+	}
+
+	&_close {
+		transform: rotate(45deg);
+	}
+
+	&__inner {
+		position: relative;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 30px;
+		height: 30px;
+
+		border-radius: 50%;
+		border: 1px solid #fff;
+		cursor: pointer;
+		transition: var(--t-animation) linear;
+	}
+
+	&__line {
+		display: inline-block;
+		min-width: 13px;
+		height: 2px;
+		border-radius: 3px;
+
+		background-color: #fff;
+	}
+
+	&__line:first-child {}
+
+	&__line:last-child {
+		position: absolute;
+		transform: rotate(90deg);
+	}
+}
