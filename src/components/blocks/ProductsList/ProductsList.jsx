@@ -1,21 +1,13 @@
-import cnBind from 'classnames/bind';
-
-import Card from '../../modules/card/Сard';
-
 import styles from './ProductsList.module.scss';
 
-const SCN = cnBind.bind(styles);
-// import { productsData as data } from '../../../data/data';
-let data = require('../../../data/productsData.json');
-
-function ProductsList() {
+const ProductsList = function () {
 	return (
-		<div className={SCN('ProductsList')}>
-			{data.map(item => (
-				<Card data={item} key={item.id} />
-			))}
-		</div>
+		<>
+			<div className="">
+				<h2>test</h2>
+			</div>
+		</>
 	);
-}
+};
 
 export default ProductsList;
