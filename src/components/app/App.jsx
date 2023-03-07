@@ -1,6 +1,6 @@
 import mcnBind from 'classnames/bind';
 
-import Products from '../page/products/Products';
+import Products from '@page/products/Products';
 
 import styles from './App.module.scss';
 
