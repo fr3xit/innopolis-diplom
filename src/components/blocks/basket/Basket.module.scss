@@ -1,0 +1,25 @@
+.basket {
+	display: flex;
+	gap: 20px;
+	padding: 5px 15px;
+
+	border-radius: 30px;
+	cursor: pointer;
+	transition: var(--t-animation) linear;
+
+	&:hover {
+		background-color: var(--c-accent);
+	}
+
+	&::after {
+		content: url('../../../../public/img/basket.svg');
+	}
+
+	&__inner {
+		text-align: right;
+	}
+
+	&__product {}
+
+	&__sum {}
+}

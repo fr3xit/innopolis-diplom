@@ -10,8 +10,6 @@ import styles from './ProductsList.module.scss';
 const data = require('@data/productsData.json');
 const SCN = mcnBind.bind(styles);
 
-console.log(data[0]);
-console.log(data[0].price);
 const ProductsList = function () {
 	return (
 		<>

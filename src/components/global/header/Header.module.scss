@@ -1,0 +1,17 @@
+.header {
+	display: flex;
+	// justify-content: space-between;
+	gap: 30px;
+	min-width: 100%;
+
+	background-color: darkmagenta;
+
+	&__left {}
+
+	&__center {
+		flex: 1 1 auto;
+		background-color: darkcyan;
+	}
+
+	&__right {}
+}
