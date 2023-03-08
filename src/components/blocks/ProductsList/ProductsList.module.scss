@@ -1,10 +1,20 @@
 .products-list {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	gap: 35px 15px;
 
 	&__item {
 		min-height: 522px;
 		width: 312px;
+		padding: 30px 20px;
+
+		border: 1px solid var(--c-accent);
+		transition: var(--t-animation) linear;
+
+		&:hover {
+			box-shadow: 0 0 15px var(--c-bg_light);
+			background-color: var(--c-bg_light);
+		}
 	}
 }

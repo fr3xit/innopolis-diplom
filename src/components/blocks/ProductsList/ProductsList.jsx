@@ -10,7 +10,8 @@ import styles from './ProductsList.module.scss';
 const data = require('@data/productsData.json');
 const SCN = mcnBind.bind(styles);
 
-// console.log(data);
+console.log(data[0]);
+console.log(data[0].price);
 const ProductsList = function () {
 	return (
 		<>
@@ -21,9 +22,20 @@ const ProductsList = function () {
 						className={SCN('products-list__item')}>
 						<Card
 							key={item.id}
-							Header={<Header url={item.img.url} alt={item.img.alt} />}
+							Header={
+								<Header
+									url={item.img.url}
+									alt={item.img.alt ? item.img.alt : item.title}
+								/>
+							}
 							Main={<Main title={item.title} desc={item.desc} />}
-							Footer={<Footer />}
+							Footer={
+								<Footer
+									price={item.price}
+									amount={item.amount}
+									units={item.units}
+								/>
+							}
 							mods={'vertically'}
 						/>
 					</div>

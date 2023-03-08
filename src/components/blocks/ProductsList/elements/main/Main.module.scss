@@ -1,0 +1,16 @@
+.main {
+	&__title {
+		margin-bottom: 15px;
+
+		cursor: pointer;
+		transition: var(--t-animation) linear;
+
+		&:hover {
+			color: var(--c-accent);
+		}
+	}
+
+	&__desc {}
+
+	&__text {}
+}
