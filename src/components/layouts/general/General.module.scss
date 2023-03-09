@@ -11,6 +11,8 @@
 
 	&__header {
 		position: fixed;
+		z-index: 1000;
+
 		width: 100vw;
 
 		background-color: var(--c-bg_dark);
