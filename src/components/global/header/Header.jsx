@@ -9,7 +9,7 @@ const Header = function ({ left, center, right }) {
 		<header className={SCN('header')}>
 			<div className={SCN('header__left')}>{left()}</div>
 			<div className={SCN('header__center')}>{center()}</div>
-			<div className={SCN('header__center')}>{right()}</div>
+			<div className={SCN('header__right')}>{right()}</div>
 		</header>
 	);
 };

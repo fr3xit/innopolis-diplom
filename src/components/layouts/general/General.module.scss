@@ -6,8 +6,9 @@
 	height: 100vh;
 
 	&__header-aut {
+		position: absolute;
+		width: 100%;
 		background-color: darkred;
-		// position: absolute;
 		display: flex;
 		justify-content: space-between;
 		gap: 30px;

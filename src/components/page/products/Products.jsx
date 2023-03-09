@@ -23,6 +23,13 @@ const Text = () => (
 );
 // const Basket = () => <p>Корзина</p>;
 
+const Header2 = () => {
+	return (
+		<div className="куку">
+			<p>test</p>
+		</div>
+	);
+};
 const HeaderReady = () => (
 	<HeaderSample left={Title} center={Text} right={Basket} />
 );
@@ -42,7 +49,7 @@ const Main = () => (
 const Products = function () {
 	return (
 		<>
-			<Layout header={Header} main={Main} />
+			<Layout header={HeaderReady} main={Main} />
 		</>
 	);
 };
