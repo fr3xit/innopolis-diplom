@@ -1,13 +1,9 @@
-* {
-	box-sizing: border-box;
-}
-
 .page {
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	height: 100vh;
+	max-height: 100vh;
 
 	&__header {
 		position: fixed;

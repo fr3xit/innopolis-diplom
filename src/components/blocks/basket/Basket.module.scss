@@ -7,6 +7,10 @@
 	cursor: pointer;
 	transition: var(--t-animation) linear;
 
+	&:active {
+		opacity: .3;
+	}
+
 	&:hover {
 		box-shadow: 0 0 10px var(--c-accent);
 		background-color: var(--c-accent);

@@ -2,6 +2,10 @@
 	display: inline-block;
 	padding: 5px;
 
+	&:active {
+		opacity: .3;
+	}
+
 	&:hover .button__inner {
 		background-color: var(--c-accent);
 		transform: scale(1.2);
