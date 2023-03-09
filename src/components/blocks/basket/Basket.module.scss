@@ -8,6 +8,7 @@
 	transition: var(--t-animation) linear;
 
 	&:hover {
+		box-shadow: 0 0 10px var(--c-accent);
 		background-color: var(--c-accent);
 	}
 

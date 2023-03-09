@@ -7,7 +7,7 @@ const SCN = mcnBind.bind(styles);
 const Сontainer = function ({ child }) {
 	return (
 		<>
-			<div className={SCN('container')}>{child()}</div>;
+			<div className={SCN('container')}>{child()}</div>
 		</>
 	);
 };

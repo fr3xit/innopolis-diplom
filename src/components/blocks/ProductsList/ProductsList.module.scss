@@ -6,7 +6,7 @@
 
 	&__item {
 		min-height: 522px;
-		width: 312px;
+		max-width: 312px;
 		padding: 30px 20px;
 
 		border: 1px solid var(--c-accent);

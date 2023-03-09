@@ -8,10 +8,9 @@ const SCN = mcnBind.bind(styles);
 const General = function ({ header, main, footer }) {
 	return (
 		<div className={SCN('page')}>
-			{/* <div className={SCN('page__header-aut')}>{header()}</div> */}
-			<div className={SCN('page__header-aut')}>
+			<header className={SCN('page__header')}>
 				<Container child={header} />
-			</div>
+			</header>
 			<main className={SCN('page__main')}>{main()}</main>
 			<footer className={SCN('page__footer')}>footer</footer>
 		</div>

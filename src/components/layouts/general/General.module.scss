@@ -1,3 +1,7 @@
+* {
+	box-sizing: border-box;
+}
+
 .page {
 	position: relative;
 	display: flex;
@@ -5,13 +9,11 @@
 	justify-content: space-between;
 	height: 100vh;
 
-	&__header-aut {
-		position: absolute;
-		width: 100%;
-		background-color: darkred;
-		display: flex;
-		justify-content: space-between;
-		gap: 30px;
+	&__header {
+		position: fixed;
+		width: 100vw;
+
+		background-color: var(--c-bg_dark);
 	}
 
 	&__main {
