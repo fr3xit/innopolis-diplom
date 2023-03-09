@@ -5,6 +5,10 @@
 		cursor: pointer;
 		transition: var(--t-animation) linear;
 
+		&:active {
+			opacity: .3;
+		}
+
 		&:hover {
 			color: var(--c-accent);
 		}
