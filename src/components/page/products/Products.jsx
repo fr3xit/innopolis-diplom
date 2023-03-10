@@ -1,5 +1,5 @@
 import mcnBind from 'classnames/bind';
-
+import { Link } from 'react-router-dom';
 import Layout from '@layouts/general/General.jsx';
 import Header from '@global/header/Header';
 import Title from '@global/header/elements/title/Title';
@@ -19,7 +19,11 @@ const Products = function () {
 				<Container>
 					<Header
 						left={<Title>наша продукция</Title>}
-						right={<Basket func={testFunc} />}
+						right={
+							<Link to={'/basket'}>
+								<Basket />
+							</Link>
+						}
 					/>
 				</Container>
 			}

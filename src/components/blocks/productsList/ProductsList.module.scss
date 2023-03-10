@@ -15,6 +15,7 @@
 		&:hover {
 			box-shadow: 0 0 15px var(--c-bg_light);
 			background-color: var(--c-bg_light);
+			transform: scale(1.03);
 		}
 	}
 }

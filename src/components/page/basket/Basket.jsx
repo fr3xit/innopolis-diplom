@@ -1,4 +1,5 @@
 import mcnBind from 'classnames/bind';
+import { Link } from 'react-router-dom';
 
 import Layout from '@layouts/general/General.jsx';
 import Header from '@global/header/Header';
@@ -10,7 +11,6 @@ import Footer from '@global/footer/Footer';
 import FooterBasket from './elements/footer/Footer';
 import BtnUi from '@modules/button_ui/Button_ui';
 
-import testFunc from '@js/testFunc';
 import styles from './Basket.module.scss';
 
 const SCN = mcnBind.bind(styles);
@@ -21,7 +21,11 @@ const Basket = function () {
 			header={
 				<Container>
 					<Header
-						left={<BtnUi mods={'arrow'} func={testFunc} />}
+						left={
+							<Link to={'/'}>
+								<BtnUi mods={'arrow'} />
+							</Link>
+						}
 						center={<Title>Корзина с выбранными товарами</Title>}
 					/>
 				</Container>

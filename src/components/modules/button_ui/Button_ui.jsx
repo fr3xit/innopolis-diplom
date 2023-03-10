@@ -1,4 +1,5 @@
 import mcnBind from 'classnames/bind';
+import { Link } from 'react-router-dom';
 
 import styles from './Button_ui.module.scss';
 
@@ -22,7 +23,9 @@ const Button_ui = function ({ func, mods }) {
 	};
 
 	return (
-		<div className={SCN('button', checkMods(mods))} onClick={func}>
+		<div
+			className={SCN('button', checkMods(mods))}
+			onClick={func ? func : null}>
 			<div className={SCN('button__inner')}>
 				<span className={SCN('button__line')}></span>
 				<span className={SCN('button__line')}></span>
