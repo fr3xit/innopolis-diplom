@@ -11,8 +11,8 @@ const Button_ui = function ({ func, mods }) {
 			case 'close':
 				result = SCN('button_close');
 				break;
-			case 'horizontal':
-				result = SCN('card_horizontal');
+			case 'arrow':
+				result = SCN('button_arrow');
 				break;
 			default:
 				result = '';

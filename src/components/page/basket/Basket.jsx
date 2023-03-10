@@ -8,6 +8,7 @@ import Container from '@global/container/Container';
 import BasketList from '@blocks/basketList/BasketList';
 import Footer from '@global/footer/Footer';
 import FooterBasket from './elements/footer/Footer';
+import BtnUi from '@modules/button_ui/Button_ui';
 
 import testFunc from '@js/testFunc';
 import styles from './Basket.module.scss';
@@ -20,7 +21,7 @@ const Basket = function () {
 			header={
 				<Container>
 					<Header
-						left={<p>Назад</p>}
+						left={<BtnUi mods={'arrow'} func={testFunc} />}
 						center={<Title>Корзина с выбранными товарами</Title>}
 					/>
 				</Container>
