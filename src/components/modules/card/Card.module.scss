@@ -10,6 +10,11 @@
 
 	&_horizontal {
 		align-items: center;
+
+		@media (max-width: 560px) {
+			flex-direction: column;
+			flex-wrap: wrap;
+		}
 	}
 
 	&__header {}

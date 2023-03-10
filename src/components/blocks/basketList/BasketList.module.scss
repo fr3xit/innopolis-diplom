@@ -3,6 +3,7 @@
 	flex-direction: column;
 
 	&__item {
+		display: flex;
 		padding: 15px;
 
 		border-radius: 5px;
