@@ -1,0 +1,14 @@
+.add {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 15px;
+
+	color: var(--c-accent);
+
+	&__result {}
+
+	&__sum {}
+
+	&__amount {}
+}

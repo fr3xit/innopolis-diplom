@@ -15,6 +15,14 @@
 		transform: rotate(45deg);
 	}
 
+	&_close &__inner {
+		border-color: var(--c-accent);
+	}
+
+	&_close &__line {
+		background-color: var(--c-accent);
+	}
+
 	&__inner {
 		position: relative;
 

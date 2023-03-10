@@ -1,0 +1,13 @@
+.basket-list {
+	display: flex;
+	flex-direction: column;
+
+	&__item {
+		padding: 15px;
+
+		&:nth-child(even) {
+			border-radius: 5px;
+			background-color: #23212395;
+		}
+	}
+}
