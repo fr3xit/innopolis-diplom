@@ -4,10 +4,10 @@ import styles from './Title.module.scss';
 
 const SCN = mcnBind.bind(styles);
 
-const Title = function ({ title = 'title' }) {
+const Title = function ({ children = 'title' }) {
 	return (
 		<>
-			<h2 className={SCN('title')}>{title}</h2>
+			<h2 className={SCN('title')}>{children}</h2>
 		</>
 	);
 };

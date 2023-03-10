@@ -7,9 +7,9 @@ const SCN = mcnBind.bind(styles);
 const Header = function ({ left, center, right }) {
 	return (
 		<div className={SCN('header__inner')}>
-			<div className={SCN('header__left')}>{left ? left() : ''}</div>
-			<div className={SCN('header__center')}>{center ? center() : ''}</div>
-			<div className={SCN('header__right')}>{right ? right() : ''}</div>
+			<div className={SCN('header__left')}>{left ? left : ''}</div>
+			<div className={SCN('header__center')}>{center ? center : ''}</div>
+			<div className={SCN('header__right')}>{right ? right : ''}</div>
 		</div>
 	);
 };

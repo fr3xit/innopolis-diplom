@@ -26,15 +26,15 @@ const General = function ({ header, main, footer }) {
 	return (
 		<div className={SCN('page')}>
 			<header ref={elementHeader} className={SCN('page__header')}>
-				{header ? header() : ''}
+				{header ? header : ''}
 			</header>
 
 			<main ref={elementMain} className={SCN('page__main')}>
-				{main ? main() : ''}
+				{main ? main : ''}
 			</main>
 
 			<footer ref={elementFooter} className={SCN('page__footer')}>
-				{footer ? footer() : ''}
+				{footer ? footer : ''}
 			</footer>
 		</div>
 	);

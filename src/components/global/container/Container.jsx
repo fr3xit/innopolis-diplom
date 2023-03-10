@@ -4,12 +4,8 @@ import styles from './Container.module.scss';
 
 const SCN = mcnBind.bind(styles);
 
-const Сontainer = function ({ child }) {
-	return (
-		<>
-			<div className={SCN('container')}>{child()}</div>
-		</>
-	);
+const Сontainer = function ({ children }) {
+	return <div className={SCN('container')}>{children}</div>;
 };
 
 export default Сontainer;
