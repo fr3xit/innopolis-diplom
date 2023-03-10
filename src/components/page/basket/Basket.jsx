@@ -6,6 +6,8 @@ import Title from '@global/header/elements/title/Title';
 
 import Container from '@global/container/Container';
 import BasketList from '@blocks/basketList/BasketList';
+import Footer from '@global/footer/Footer';
+import FooterBasket from './elements/footer/Footer';
 
 import testFunc from '@js/testFunc';
 import styles from './Basket.module.scss';
@@ -29,12 +31,11 @@ const Basket = function () {
 				</Container>
 			}
 			footer={
-				<>
-					<hr />
+				<Footer>
 					<Container>
-						<p>Footer</p>
+						<FooterBasket />
 					</Container>
-				</>
+				</Footer>
 			}
 		/>
 	);

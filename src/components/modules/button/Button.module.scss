@@ -1,0 +1,19 @@
+.button {
+	min-width: 200px;
+	min-height: 45px;
+
+	color: var(--c-dark);
+	background-color: var(--c-accent);
+	border: 5px solid transparent;
+	transition: var(--t-animation) linear;
+
+	&:hover {
+		border-left-color: var(--c-dark);
+		border-right-color: var(--c-dark);
+		box-shadow: 0 0 10px var(--c-accent);
+	}
+
+	&:active {
+		opacity: .3;
+	}
+}
