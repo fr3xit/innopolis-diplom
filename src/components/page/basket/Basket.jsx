@@ -19,7 +19,7 @@ const Basket = function () {
 	return (
 		<Layout
 			header={
-				<Container>
+				<Container mods={'middle'}>
 					<Header
 						left={
 							<Link to={'/'}>
@@ -31,13 +31,13 @@ const Basket = function () {
 				</Container>
 			}
 			main={
-				<Container>
+				<Container mods={'middle'}>
 					<BasketList />
 				</Container>
 			}
 			footer={
 				<Footer>
-					<Container>
+					<Container mods={'middle'}>
 						<FooterBasket />
 					</Container>
 				</Footer>
