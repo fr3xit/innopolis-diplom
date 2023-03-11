@@ -1,6 +1,8 @@
 import mcnBind from 'classnames/bind';
 
 import BtnUi from '@modules/button_ui/Button_ui';
+import ToPay from '@modules/toPay/ToPay';
+
 import testFunc from '@js/testFunc';
 
 import styles from './Footer.module.scss';
@@ -23,7 +25,7 @@ const Footer = function ({ price, amount, units, func = testFunc }) {
 	return (
 		<div className={SCN('add')}>
 			<div className={SCN('add__result')}>
-				<span className={SCN('add__sum')}>{price + ' ₽'}</span>
+				<ToPay sum={price} />
 				<span className={SCN('add__amount')}>
 					{` / ${amount} ${dimension} .`}
 				</span>

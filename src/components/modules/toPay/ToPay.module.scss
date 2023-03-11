@@ -1,0 +1,12 @@
+.to-pay {
+	display: flex;
+	gap: 10px;
+
+	&_orange {
+		color: var(--c-accent);
+	}
+
+	&__sum {}
+
+	&__currency {}
+}
