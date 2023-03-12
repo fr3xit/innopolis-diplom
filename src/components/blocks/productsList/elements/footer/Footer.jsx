@@ -1,14 +1,18 @@
 import mcnBind from 'classnames/bind';
+import { useDispatch } from 'react-redux';
 
 import BtnUi from '@modules/button_ui/Button_ui';
 import ToPay from '@modules/toPay/ToPay';
-
+import { addProduct } from '../../../../../store/slices/basket/basket';
 import testFunc from '@js/testFunc';
 
 import styles from './Footer.module.scss';
+
 const SCN = mcnBind.bind(styles);
 
-const Footer = function ({ price, amount, units, func = testFunc }) {
+const Footer = function ({ id, price, amount, units, func = testFunc }) {
+	const dispatch = useDispatch();
+
 	let dimension = '';
 
 	switch (units) {
@@ -22,6 +26,8 @@ const Footer = function ({ price, amount, units, func = testFunc }) {
 			dimension = 'шт';
 	}
 
+	const test = () => dispatch(addProduct(id));
+
 	return (
 		<div className={SCN('add')}>
 			<div className={SCN('add__result')}>
@@ -31,7 +37,7 @@ const Footer = function ({ price, amount, units, func = testFunc }) {
 				</span>
 			</div>
 
-			<BtnUi key={Date.now()} func={func} />
+			<BtnUi key={Date.now()} func={test} />
 		</div>
 	);
 };
