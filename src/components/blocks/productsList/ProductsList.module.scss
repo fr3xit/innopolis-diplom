@@ -9,7 +9,7 @@
 		max-width: 312px;
 		padding: 30px 20px;
 
-		background-color: #23212395;
+		background-color: var(--c-grey);
 		box-shadow: 0 0 15px var(--c-bg_light);
 		border: 1px solid var(--c-accent);
 		transition: var(--t-animation) linear;
