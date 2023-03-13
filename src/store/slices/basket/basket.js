@@ -1,4 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { useSelector } from 'react-redux';
+
 const initState = {
 	amount: 0,
 	total: 0,

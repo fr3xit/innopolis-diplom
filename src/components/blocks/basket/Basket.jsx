@@ -6,8 +6,8 @@ import styles from './Basket.module.scss';
 const SCN = mcnBind.bind(styles);
 
 const Basket = function ({ func }) {
-	let product = useSelector(state => state.basket.total);
-	let sum = useSelector(state => state.basket.amount);
+	const product = useSelector(state => state.basket.total);
+	const sum = useSelector(state => state.basket.amount);
 
 	return (
 		<div className={SCN('basket')} onClick={func ? func : null}>

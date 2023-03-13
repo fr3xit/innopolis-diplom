@@ -1,4 +1,5 @@
 import mcnBind from 'classnames/bind';
+import { useSelector } from 'react-redux';
 
 import Header from './elements/header/Header';
 import Main from './elements/main/Main';
@@ -7,15 +8,15 @@ import Card from '@modules/card/Card.jsx';
 
 import styles from './BasketList.module.scss';
 
-const data = require('@data/productsData.json');
 const SCN = mcnBind.bind(styles);
 
-const dataTest = [...data, ...data];
 const BasketList = function () {
+	const data = useSelector(state => state.basket.list);
+
 	return (
 		<>
 			<div className={SCN('basket-list')}>
-				{dataTest.map(item => (
+				{data.map(item => (
 					<div
 						key={Date.now() + Math.random()}
 						className={SCN('basket-list__item')}>
