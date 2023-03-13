@@ -1,4 +1,5 @@
 import mcnBind from 'classnames/bind';
+import { useSelector } from 'react-redux';
 
 import Header from './elements/header/Header';
 import Main from './elements/main/Main';
@@ -7,10 +8,11 @@ import Card from '@modules/card/Card.jsx';
 
 import styles from './ProductsList.module.scss';
 
-const data = require('@data/productsData.json');
 const SCN = mcnBind.bind(styles);
 
 const ProductsList = function () {
+	const data = useSelector(state => state.product);
+
 	return (
 		<>
 			<div className={SCN('products-list')}>

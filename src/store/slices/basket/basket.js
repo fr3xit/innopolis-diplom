@@ -1,12 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
-const initState = [];
+const initState = {
+	amount: 0,
+	total: 0,
+	list: [],
+};
 
 export const basketSlice = createSlice({
 	name: 'basket',
 	initialState: initState,
 	reducers: {
 		addProduct: (state, action) => {
-			state.push(action.payload);
+			state.list.push(action.payload);
 		},
 	},
 });
