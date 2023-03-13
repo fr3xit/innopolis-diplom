@@ -1,24 +1,16 @@
 .basket-list {
 	display: flex;
-	gap: 10px;
+	gap: 15px;
 	flex-direction: column;
 
 	&__item {
-		display: flex;
+		gap: 30px;
 		padding: 15px;
 
-		background-color: var(--c-grey);
-		border-radius: 5px;
-		transition: var(--t-animation) linear;
+		box-shadow: 0 0 5px var(--c-bg_light);
 
 		&:hover {
-			transform: scale(1.03);
-			box-shadow: 0 0 15px var(--c-bg_light);
-			background-color: var(--c-bg_light) !important;
+			box-shadow: 0 0 5px var(--c-accent);
 		}
-
-		// &:nth-child(even) {
-		// 	background-color:var(--c-grey);
-		// }
 	}
 }

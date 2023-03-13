@@ -1,48 +1,30 @@
-import mcnBind from 'classnames/bind';
+import moduleClassNameBind from 'classnames/bind';
 import { useSelector } from 'react-redux';
 
-import Header from './elements/header/Header';
-import Main from './elements/main/Main';
-import Footer from './elements/footer/Footer';
 import Card from '@modules/card/Card.jsx';
 
-import styles from './BasketList.module.scss';
+import stylesBasketList from './BasketList.module.scss';
+import stylesCard from '@modules/card/Card.module.scss';
 
-const SCN = mcnBind.bind(styles);
+const classNameBasketList = moduleClassNameBind.bind(stylesBasketList);
+const classNameCard = moduleClassNameBind.bind(stylesCard);
 
 const BasketList = function () {
 	const data = useSelector(state => state.product.basket.list);
 
 	return (
-		<>
-			<div className={SCN('basket-list')}>
-				{data.map(item => (
-					<div
-						key={Date.now() + Math.random()}
-						className={SCN('basket-list__item')}>
-						<Card
-							key={item.id}
-							Header={
-								<Header
-									url={item.img.url}
-									alt={item.img.alt ? item.img.alt : item.title}
-								/>
-							}
-							Main={<Main title={item.title} desc={item.desc} />}
-							Footer={
-								<Footer
-									id={item.id}
-									price={item.price}
-									amount={item.amount}
-									units={item.units}
-								/>
-							}
-							mods={'horizontal'}
-						/>
-					</div>
-				))}
-			</div>
-		</>
+		<div className={classNameBasketList('basket-list')}>
+			{data.map(item => (
+				<Card
+					key={item.id}
+					mods={[
+						classNameBasketList('basket-list__item'),
+						classNameCard('card_horizontal'),
+					]}
+					item={item}
+				/>
+			))}
+		</div>
 	);
 };
 

@@ -21,11 +21,18 @@ const Button_ui = function ({ func, mods }) {
 
 		return result;
 	};
-
+	// func
 	return (
 		<div
 			className={SCN('button', checkMods(mods))}
-			onClick={func ? func : null}>
+			onClick={
+				func
+					? event => {
+							event.stopPropagation();
+							func();
+					  }
+					: null
+			}>
 			<div className={SCN('button__inner')}>
 				<span className={SCN('button__line')}></span>
 				<span className={SCN('button__line')}></span>
