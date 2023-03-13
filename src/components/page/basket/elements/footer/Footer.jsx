@@ -8,7 +8,7 @@ import styles from './Footer.module.scss';
 const SCN = mcnBind.bind(styles);
 
 const Footer = function () {
-	const price = useSelector(state => state.basket.sum);
+	const price = useSelector(state => state.product.basket.sum);
 
 	return (
 		<div className={SCN('basket-footer')}>
