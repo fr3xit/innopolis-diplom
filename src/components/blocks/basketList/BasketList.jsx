@@ -31,6 +31,7 @@ const BasketList = function () {
 							Main={<Main title={item.title} desc={item.desc} />}
 							Footer={
 								<Footer
+									id={item.id}
 									price={item.price}
 									amount={item.amount}
 									units={item.units}

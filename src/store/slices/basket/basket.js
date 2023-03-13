@@ -24,9 +24,20 @@ export const basketSlice = createSlice({
 			calcBasket(state);
 			// state.list.push(action.payload);
 		},
+
+		removeProduct: (state, action) => {
+			const index = state.list.forEach((item, index) => {
+				if (item.id === action.payload) {
+					return index;
+				}
+			});
+
+			state.list.splice(index, 1);
+			calcBasket(state);
+		},
 	},
 });
 
-export const { addProduct } = basketSlice.actions;
+export const { addProduct, removeProduct } = basketSlice.actions;
 
 export default basketSlice.reducer;
