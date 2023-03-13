@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux';
 const productList = require('@data/productsData.json');
 
 const initState = {
+	list: [...productList],
 	amount: 0,
 	sum: 0,
-	list: [...productList],
 };
 
 const calcBasket = function (state) {
@@ -15,6 +15,7 @@ const calcBasket = function (state) {
 		return sum + Number(item.price.replace(/\s/g, ''));
 	}, 0);
 };
+// console.log(state.list);
 
 export const basketSlice = createSlice({
 	name: 'basket',
@@ -25,19 +26,25 @@ export const basketSlice = createSlice({
 			// state.list.push(action.payload);
 		},
 
-		removeProduct: (state, action) => {
-			const index = state.list.forEach((item, index) => {
-				if (item.id === action.payload) {
-					return index;
-				}
-			});
+		addMore: (state, action) => {
+			calcBasket(state);
+		},
 
-			state.list.splice(index, 1);
+		removeProduct: (state, action) => {
+			// const index = state.list.forEach((item, index) => {
+			// 	if (item.id === action.payload) {
+			// 		return index;
+			// 	}
+			// });
+
+			// state.list.splice(index, 1);
+			state.list = state.list.filter(item => item.id !== action.payload);
+
 			calcBasket(state);
 		},
 	},
 });
 
-export const { addProduct, removeProduct } = basketSlice.actions;
+export const { addProduct, addMore, removeProduct } = basketSlice.actions;
 
 export default basketSlice.reducer;
