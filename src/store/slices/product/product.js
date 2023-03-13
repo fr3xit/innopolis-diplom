@@ -13,7 +13,6 @@ const initState = {
 
 const calcBasket = function (state) {
 	state.basket.sum = state.basket.list.reduce((sum, item) => {
-		state.basket.amount++;
 		return sum + Number(item.price.replace(/\s/g, ''));
 	}, 0);
 };
@@ -26,14 +25,32 @@ export const productSlice = createSlice({
 			state.basket.list.push(
 				state.allProduct.find(item => item.id === action.payload)
 			);
+
+			state.basket.amount++;
+			state.basket.sum =
+				state.basket.sum +
+				Number(
+					state.basket.list
+						.find(item => item.id === action.payload)
+						.price.replace(/\s/g, '')
+				);
 			// calcBasket(state);
 		},
 
 		removeProductBasket: (state, action) => {
+			state.basket.sum =
+				state.basket.sum -
+				Number(
+					state.basket.list
+						.find(item => item.id === action.payload)
+						.price.replace(/\s/g, '')
+				);
+
 			state.basket.list = state.basket.list.filter(
 				item => item.id !== action.payload
 			);
-			// calcBasket(state);
+
+			state.basket.amount--;
 		},
 	},
 });
