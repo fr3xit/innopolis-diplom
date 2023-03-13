@@ -1,12 +1,13 @@
 import mcnBind from 'classnames/bind';
+import { useSelector } from 'react-redux';
 
 import styles from './Basket.module.scss';
 
 const SCN = mcnBind.bind(styles);
 
 const Basket = function ({ func }) {
-	let product = 3;
-	let sum = 3500;
+	let product = useSelector(state => state.basket.total);
+	let sum = useSelector(state => state.basket.amount);
 
 	return (
 		<div className={SCN('basket')} onClick={func ? func : null}>
