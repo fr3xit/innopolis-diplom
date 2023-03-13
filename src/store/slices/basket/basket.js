@@ -9,23 +9,19 @@ const initState = {
 	list: [...productList],
 };
 
-function GetState(state) {
-	const data = useSelector(state => state.product);
-	console.log(data);
-	// console.log(state.product);
-	// return state.product;
-}
+const calcBasket = function (state) {
+	state.sum = state.list.reduce((sum, item) => {
+		state.amount++;
+		return sum + Number(item.price.replace(/\s/g, ''));
+	}, 0);
+};
 
 export const basketSlice = createSlice({
 	name: 'basket',
 	initialState: initState,
 	reducers: {
 		addProduct: (state, action) => {
-			state.sum = state.list.reduce((sum, item) => {
-				state.amount++;
-				return sum + Number(item.price.replace(/\s/g, ''));
-			}, 0);
-
+			calcBasket(state);
 			// state.list.push(action.payload);
 		},
 	},
