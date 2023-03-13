@@ -11,7 +11,7 @@ import styles from './ProductsList.module.scss';
 const SCN = mcnBind.bind(styles);
 
 const ProductsList = function () {
-	const data = useSelector(state => state.product);
+	const data = useSelector(state => state.product.allProduct);
 
 	return (
 		<>

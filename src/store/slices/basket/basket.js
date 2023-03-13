@@ -5,8 +5,8 @@ const productList = require('@data/productsData.json');
 
 const initState = {
 	list: [...productList],
-	amount: 0,
-	sum: 0,
+	amount: 5000,
+	sum: 90000,
 };
 
 const calcBasket = function (state) {
