@@ -5,14 +5,14 @@ import BtnUi from '@modules/button_ui/Button_ui';
 import ToPay from '@modules/toPay/ToPay';
 
 import testFunc from '@js/testFunc';
-import { removeProduct } from '../../../../../store/slices/basket/basket';
+import { removeProductBasket } from '../../../../../store/slices/product/product';
 
 import styles from './Footer.module.scss';
 const SCN = mcnBind.bind(styles);
 
 const Footer = function ({ id, price, amount, units, func = testFunc }) {
 	const dispatch = useDispatch();
-	const test = () => dispatch(removeProduct(id));
+	const removeProduct = () => dispatch(removeProductBasket(id));
 
 	let dimension = '';
 
@@ -33,7 +33,7 @@ const Footer = function ({ id, price, amount, units, func = testFunc }) {
 				<ToPay sum={price} mods={'orange'} />
 			</div>
 
-			<BtnUi mods={'close'} func={test} />
+			<BtnUi mods={'close'} func={removeProduct} />
 		</div>
 	);
 };

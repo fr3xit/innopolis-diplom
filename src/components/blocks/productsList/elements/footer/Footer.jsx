@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import BtnUi from '@modules/button_ui/Button_ui';
 import ToPay from '@modules/toPay/ToPay';
-import { addProduct } from '../../../../../store/slices/basket/basket';
+import { addProductBasket } from '../../../../../store/slices/product/product';
 import testFunc from '@js/testFunc';
 
 import styles from './Footer.module.scss';
@@ -26,7 +26,7 @@ const Footer = function ({ id, price, amount, units, func = testFunc }) {
 			dimension = 'шт';
 	}
 
-	const test = () => dispatch(addProduct(id));
+	const test = () => dispatch(addProductBasket(id));
 
 	return (
 		<div className={SCN('add')}>
