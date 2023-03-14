@@ -21,8 +21,7 @@ const Button_ui = function ({ func, mods }) {
 
 		return result;
 	};
-	// func
-	console.log(func);
+
 	return (
 		<div
 			className={SCN('button', checkMods(mods))}

@@ -1,7 +1,5 @@
 import moduleClassNameBind from 'classnames/bind';
-import { useDispatch } from 'react-redux';
 
-import { addProductBasket } from '../../../store/slices/product/product';
 import BtnUi from '@modules/button_ui/Button_ui';
 import ToPay from '@modules/toPay/ToPay';
 
@@ -12,7 +10,6 @@ const classNameCard = moduleClassNameBind.bind(styles);
 
 const Card = function ({
 	item: {
-		id,
 		title,
 		desc,
 		price,
@@ -21,7 +18,8 @@ const Card = function ({
 		img: { url, alt },
 	},
 	mods,
-	funcButtonUI,
+	funcButtonUI = testFunc,
+	funcCard = testFunc,
 }) {
 	mods.find(item => {
 		if (item === classNameCard('card_vertically')) {
@@ -30,8 +28,6 @@ const Card = function ({
 			}
 		}
 	});
-
-	const dispatch = useDispatch();
 
 	let dimension = '';
 
@@ -46,11 +42,9 @@ const Card = function ({
 			dimension = 'шт';
 	}
 
-	const test = () => dispatch(addProductBasket(id));
-
 	return (
 		<div
-			onClick={testFunc}
+			onClick={funcCard}
 			className={[classNameCard('card'), ...mods].join(' ')}>
 			<header className={classNameCard('card__header')}>
 				<img className={classNameCard('card__img')} src={url} alt={alt} />

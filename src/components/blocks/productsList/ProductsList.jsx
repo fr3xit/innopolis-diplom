@@ -1,14 +1,11 @@
 import moduleClassNameBind from 'classnames/bind';
 import { useSelector } from 'react-redux';
-
-//
 import { useDispatch } from 'react-redux';
+
 import {
 	addProductBasket,
 	removeProductBasket,
 } from '../../../store/slices/product/product';
-//
-
 import Card from '@modules/card/Card.jsx';
 
 import stylesProductsList from './ProductsList.module.scss';
@@ -18,18 +15,13 @@ const classNameProductsList = moduleClassNameBind.bind(stylesProductsList);
 const classNameCard = moduleClassNameBind.bind(stylesCard);
 
 const ProductsList = function () {
-	//
 	const dispatch = useDispatch();
-
-	//
 	const data = useSelector(state => state.product.allProduct);
 
 	return (
 		<div className={classNameProductsList('products-list')}>
 			{data.map(item => {
-				//
-				const myFunc = () => dispatch(addProductBasket(item.id));
-				//
+				const funcButtonUI = () => dispatch(addProductBasket(item.id));
 				return (
 					<Card
 						key={item.id}
@@ -38,7 +30,7 @@ const ProductsList = function () {
 							classNameCard('card_vertically'),
 						]}
 						item={item}
-						funcButtonUI={myFunc}
+						funcButtonUI={funcButtonUI}
 					/>
 				);
 			})}
