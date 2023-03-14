@@ -11,11 +11,17 @@ const Basket = function ({ func }) {
 	const sum = useSelector(state => state.product.basket.sum);
 	const product = useSelector(state => state.product.basket.amount);
 
+	const declensionProduct = declensionWord(product, [
+		'товар',
+		'товара',
+		'товаров',
+	]);
+
 	return (
 		<div className={classNameBasket('basket')} onClick={func ? func : null}>
 			<div className={classNameBasket('basket__inner')}>
 				<div className={classNameBasket('basket__product')}>
-					{`${product} товара`}
+					{`${product} ${declensionProduct}`}
 				</div>
 				<div className={classNameBasket('basket__sum')}>
 					<span>на сумму </span>
@@ -26,4 +32,5 @@ const Basket = function ({ func }) {
 	);
 };
 
+// hour
 export default Basket;
