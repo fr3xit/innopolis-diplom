@@ -1,6 +1,6 @@
 import moduleClassNameBind from 'classnames/bind';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { v4 as getID } from 'uuid';
 
 import { removeProductBasket } from '../../../store/slices/product/product';
 import Card from '@modules/card/Card.jsx';
@@ -21,7 +21,7 @@ const BasketList = function () {
 				const funcButtonUI = () => dispatch(removeProductBasket(item.id));
 				return (
 					<Card
-						key={item.id}
+						key={getID()}
 						mods={[
 							classNameBasketList('basket-list__item'),
 							classNameCard('card_horizontal'),
