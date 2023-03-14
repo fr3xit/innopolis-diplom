@@ -1,0 +1,12 @@
+.basket-footer {
+	display: flex;
+	align-items: center;
+	padding: 20px 0;
+
+	&__info {
+		display: flex;
+		gap: 20px;
+		flex: 1 1 auto;
+		text-transform: uppercase;
+	}
+}

@@ -1,19 +1,22 @@
-import mcnBind from 'classnames/bind';
+import moduleClassNameBind from 'classnames/bind';
 import { useSelector } from 'react-redux';
 
-import styles from './Basket.module.scss';
+import stylesBasket from './Basket.module.scss';
 
-const SCN = mcnBind.bind(styles);
+const classNameBasket = moduleClassNameBind.bind(stylesBasket);
 
 const Basket = function ({ func }) {
 	const sum = useSelector(state => state.product.basket.sum);
 	const product = useSelector(state => state.product.basket.amount);
 
 	return (
-		<div className={SCN('basket')} onClick={func ? func : null}>
-			<div className={SCN('basket__inner')}>
-				<div className={SCN('basket__product')}>{`${product} товара`}</div>
-				<div className={SCN('basket__sum')}>{`на сумму ${sum} ₽`}</div>
+		<div className={classNameBasket('basket')} onClick={func ? func : null}>
+			<div className={classNameBasket('basket__inner')}>
+				<div className={classNameBasket('basket__product')}>
+					{`${product} товара`}
+				</div>
+				<div
+					className={classNameBasket('basket__sum')}>{`на сумму ${sum} ₽`}</div>
 			</div>
 		</div>
 	);

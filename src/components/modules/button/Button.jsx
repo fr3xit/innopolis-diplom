@@ -1,14 +1,14 @@
-import mcnBind from 'classnames/bind';
+import moduleClassNameBind from 'classnames/bind';
 
 import testFunc from '@js/testFunc';
-import styles from './Button.module.scss';
+import stylesButton from './Button.module.scss';
 
-const SCN = mcnBind.bind(styles);
+const classNameButton = moduleClassNameBind.bind(stylesButton);
 
 const Button = function ({ children, func = testFunc }) {
 	return (
 		<>
-			<button className={SCN('button')} onClick={func}>
+			<button className={classNameButton('button')} onClick={func}>
 				<span>{children}</span>
 			</button>
 		</>

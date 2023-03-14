@@ -1,19 +1,18 @@
-import mcnBind from 'classnames/bind';
-import { Link } from 'react-router-dom';
+import moduleClassNameBind from 'classnames/bind';
 
-import styles from './Button_ui.module.scss';
+import stylesButtonUi from './Button_ui.module.scss';
 
-const SCN = mcnBind.bind(styles);
+const classNameButtonUi = moduleClassNameBind.bind(stylesButtonUi);
 
 const Button_ui = function ({ func, mods }) {
 	const checkMods = function (mods) {
 		let result;
 		switch (mods) {
 			case 'close':
-				result = SCN('button_close');
+				result = classNameButtonUi('button_close');
 				break;
 			case 'arrow':
-				result = SCN('button_arrow');
+				result = classNameButtonUi('button_arrow');
 				break;
 			default:
 				result = '';
@@ -24,7 +23,7 @@ const Button_ui = function ({ func, mods }) {
 
 	return (
 		<div
-			className={SCN('button', checkMods(mods))}
+			className={classNameButtonUi('button', checkMods(mods))}
 			onClick={
 				func
 					? event => {
@@ -33,9 +32,9 @@ const Button_ui = function ({ func, mods }) {
 					  }
 					: null
 			}>
-			<div className={SCN('button__inner')}>
-				<span className={SCN('button__line')}></span>
-				<span className={SCN('button__line')}></span>
+			<div className={classNameButtonUi('button__inner')}>
+				<span className={classNameButtonUi('button__line')}></span>
+				<span className={classNameButtonUi('button__line')}></span>
 			</div>
 		</div>
 	);

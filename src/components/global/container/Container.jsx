@@ -1,15 +1,15 @@
-import mcnBind from 'classnames/bind';
+import moduleClassNameBind from 'classnames/bind';
 
-import styles from './Container.module.scss';
+import stylesContainer from './Container.module.scss';
 
-const SCN = mcnBind.bind(styles);
+const classNameContainer = moduleClassNameBind.bind(stylesContainer);
 
 const checkMods = function (mods) {
 	let result;
 
 	switch (mods) {
 		case 'middle':
-			result = SCN('container_middle');
+			result = classNameContainer('container_middle');
 			break;
 		default:
 			result = '';
@@ -19,7 +19,11 @@ const checkMods = function (mods) {
 };
 
 const Сontainer = function ({ children, mods }) {
-	return <div className={SCN('container', checkMods(mods))}>{children}</div>;
+	return (
+		<div className={classNameContainer('container', checkMods(mods))}>
+			{children}
+		</div>
+	);
 };
 
 export default Сontainer;

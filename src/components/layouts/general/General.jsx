@@ -1,10 +1,9 @@
 import { useEffect, useRef } from 'react';
-import mcnBind from 'classnames/bind';
+import moduleClassNameBind from 'classnames/bind';
 
-import Container from '@global/container/Container';
-import styles from './General.module.scss';
+import stylesGeneral from './General.module.scss';
 
-const SCN = mcnBind.bind(styles);
+const classNameGeneral = moduleClassNameBind.bind(stylesGeneral);
 
 const General = function ({ header, main, footer }) {
 	const elementHeader = useRef(null);
@@ -24,16 +23,16 @@ const General = function ({ header, main, footer }) {
 	}, []);
 
 	return (
-		<div className={SCN('page')}>
-			<header ref={elementHeader} className={SCN('page__header')}>
+		<div className={classNameGeneral('page')}>
+			<header ref={elementHeader} className={classNameGeneral('page__header')}>
 				{header ? header : ''}
 			</header>
 
-			<main ref={elementMain} className={SCN('page__main')}>
+			<main ref={elementMain} className={classNameGeneral('page__main')}>
 				{main ? main : ''}
 			</main>
 
-			<footer ref={elementFooter} className={SCN('page__footer')}>
+			<footer ref={elementFooter} className={classNameGeneral('page__footer')}>
 				{footer ? footer : ''}
 			</footer>
 		</div>

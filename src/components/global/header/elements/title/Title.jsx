@@ -1,13 +1,13 @@
-import mcnBind from 'classnames/bind';
+import moduleClassNameBind from 'classnames/bind';
 
-import styles from './Title.module.scss';
+import stylesTitle from './Title.module.scss';
 
-const SCN = mcnBind.bind(styles);
+const classNameTitle = moduleClassNameBind.bind(stylesTitle);
 
 const Title = function ({ children = 'title' }) {
 	return (
 		<>
-			<h2 className={SCN('title')}>{children}</h2>
+			<h2 className={classNameTitle('title')}>{children}</h2>
 		</>
 	);
 };
