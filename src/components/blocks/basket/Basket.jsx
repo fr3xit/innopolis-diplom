@@ -2,6 +2,7 @@ import moduleClassNameBind from 'classnames/bind';
 import { useSelector } from 'react-redux';
 
 import { declensionWord } from '@js/tools.js';
+import ToPay from '@modules/toPay/ToPay';
 import stylesBasket from './Basket.module.scss';
 
 const classNameBasket = moduleClassNameBind.bind(stylesBasket);
@@ -16,8 +17,10 @@ const Basket = function ({ func }) {
 				<div className={classNameBasket('basket__product')}>
 					{`${product} товара`}
 				</div>
-				<div
-					className={classNameBasket('basket__sum')}>{`на сумму ${sum} ₽`}</div>
+				<div className={classNameBasket('basket__sum')}>
+					<span>на сумму </span>
+					<ToPay sum={sum} />
+				</div>
 			</div>
 		</div>
 	);

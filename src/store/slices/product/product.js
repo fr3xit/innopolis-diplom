@@ -24,9 +24,7 @@ export const productSlice = createSlice({
 			state.basket.sum =
 				state.basket.sum +
 				Number(
-					state.basket.list
-						.find(item => item.id === action.payload)
-						.price.replace(/\s/g, '')
+					state.basket.list.find(item => item.id === action.payload).price
 				);
 		},
 
@@ -34,9 +32,7 @@ export const productSlice = createSlice({
 			state.basket.sum =
 				state.basket.sum -
 				Number(
-					state.basket.list
-						.find(item => item.id === action.payload)
-						.price.replace(/\s/g, '')
+					state.basket.list.find(item => item.id === action.payload).price
 				);
 
 			// state.basket.list = state.basket.list.filter(

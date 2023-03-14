@@ -26,5 +26,8 @@
 
 	&__product {}
 
-	&__sum {}
+	&__sum {
+		display: flex;
+		gap: 10px;
+	}
 }
