@@ -24,7 +24,7 @@ const checkMods = function (mods) {
 	return result;
 };
 
-const ToPay = function ({ sum = 0, currency = '₽ ', mods }) {
+const ToPay = function ({ sum = 0, mods }) {
 	return (
 		<div className={classNameToPay('to-pay', checkMods(mods))}>
 			<span className={classNameToPay('to-pay__sum')}>
