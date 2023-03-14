@@ -6,11 +6,5 @@
 	&__item {
 		gap: 30px;
 		padding: 15px;
-
-		box-shadow: 0 0 5px var(--c-bg_light);
-
-		&:hover {
-			box-shadow: 0 0 5px var(--c-accent);
-		}
 	}
 }
