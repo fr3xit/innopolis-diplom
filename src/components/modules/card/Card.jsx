@@ -66,7 +66,7 @@ const Card = function ({
 						</span>
 					</div>
 
-					<BtnUi key={Date.now()} func={funcButtonUI} />
+					<BtnUi func={funcButtonUI} />
 				</div>
 			</footer>
 		</div>
