@@ -1,6 +1,7 @@
 import moduleClassNameBind from 'classnames/bind';
 import { useSelector } from 'react-redux';
 
+import { declensionWord } from '@js/tools.js';
 import stylesBasket from './Basket.module.scss';
 
 const classNameBasket = moduleClassNameBind.bind(stylesBasket);
