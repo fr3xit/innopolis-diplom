@@ -2,7 +2,7 @@ import moduleClassNameBind from 'classnames/bind';
 import { useSelector, useDispatch } from 'react-redux';
 import { v4 as getID } from 'uuid';
 
-import { removeProductBasket } from '../../../store/slices/product/product';
+import { removeProductBasket } from '@store/slices/product/product';
 import Card from '@modules/card/Card.jsx';
 
 import stylesBasketList from './BasketList.module.scss';

@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import moduleClassNameBind from 'classnames/bind';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { v4 as getID } from 'uuid';
+
 import {
 	addProductBasket,
 	removeProductBasket,
-} from '../../../store/slices/product/product';
+} from '@store/slices/product/product';
 import Card from '@modules/card/Card.jsx';
 
 import stylesProductsList from './ProductsList.module.scss';
