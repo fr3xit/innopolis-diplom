@@ -22,9 +22,12 @@ const ToPay = function ({ sum = 0, currency = '₽ ', mods }) {
 	return (
 		<div className={classNameToPay('to-pay', checkMods(mods))}>
 			<span className={classNameToPay('to-pay__sum')}>
-				{sum.toLocaleString('ru')}
+				{sum.toLocaleString('ru', {
+					style: 'currency',
+					currency: 'rub',
+					minimumFractionDigits: 0,
+				})}
 			</span>
-			<span className={classNameToPay('to-pay__currency')}>{currency}</span>
 		</div>
 	);
 };
