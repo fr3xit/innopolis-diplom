@@ -21,6 +21,7 @@ const Card = function ({
 		img: { url, alt },
 	},
 	mods,
+	funcButtonUI,
 }) {
 	mods.find(item => {
 		if (item === classNameCard('card_vertically')) {
@@ -71,7 +72,7 @@ const Card = function ({
 						</span>
 					</div>
 
-					<BtnUi key={Date.now()} func={test} />
+					<BtnUi key={Date.now()} func={funcButtonUI} />
 				</div>
 			</footer>
 		</div>
