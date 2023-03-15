@@ -5,7 +5,9 @@ import stylesButtonUi from './Button_ui.module.scss';
 
 const classNameButtonUi = moduleClassNameBind.bind(stylesButtonUi);
 
-const Button_ui = function ({ func, mods }) {
+const Button_ui = function ({ func, toggle, mods }) {
+	console.log(func);
+	console.log(mods);
 	return (
 		<div
 			className={getClasses(classNameButtonUi('button'), ...mods)}
@@ -14,6 +16,9 @@ const Button_ui = function ({ func, mods }) {
 					? event => {
 							event.stopPropagation();
 							func();
+							if (toggle) {
+								toggle();
+							}
 					  }
 					: null
 			}>

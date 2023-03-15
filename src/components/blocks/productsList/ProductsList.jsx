@@ -11,22 +11,38 @@ import Card from '@modules/card/Card.jsx';
 
 import stylesProductsList from './ProductsList.module.scss';
 import stylesCard from '@modules/card/Card.module.scss';
+import stylesButtonUi from '@modules/button_ui/Button_ui.module.scss';
 
 const classNameProductsList = moduleClassNameBind.bind(stylesProductsList);
 const classNameCard = moduleClassNameBind.bind(stylesCard);
+const classNameButtonUi = moduleClassNameBind.bind(stylesButtonUi);
 
 const ProductsList = function () {
 	const dispatch = useDispatch();
 	const data = useSelector(state => state.product.allProduct);
-	const [type, setType] = useState('add');
+	const [selectProduct, setSelectProduct] = useState(false);
+
+	const genButtonUiConfig = function (item) {
+		if (selectProduct === true) {
+			return {
+				toggleButtonUI: () => setSelectProduct(false),
+				funcButtonUI: () => dispatch(removeProductBasket(item.productId)),
+				modsButtonUI: [classNameButtonUi('button_close')],
+			};
+		}
+
+		if (selectProduct === false) {
+			return {
+				toggleButtonUI: () => setSelectProduct(true),
+				funcButtonUI: () => dispatch(addProductBasket(item.productId)),
+				modsButtonUI: [],
+			};
+		}
+	};
 
 	return (
 		<div className={classNameProductsList('products-list')}>
 			{data.map(item => {
-				const funcButtonUI = () =>
-					type === 'add'
-						? dispatch(addProductBasket(item.productId))
-						: dispatch(removeProductBasket(item.productId));
 				return (
 					<Card
 						key={getID()}
@@ -35,10 +51,7 @@ const ProductsList = function () {
 							classNameCard('card_vertically'),
 						]}
 						item={item}
-						buttonUiConfig={{
-							funcButtonUI,
-							modsButtonUI: [],
-						}}
+						buttonUiConfig={genButtonUiConfig(item)}
 					/>
 				);
 			})}

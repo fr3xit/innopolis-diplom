@@ -19,7 +19,7 @@ const Card = function ({
 		units,
 		img: { url, alt },
 	},
-	buttonUiConfig: { funcButtonUI = testFunc, modsButtonUI },
+	buttonUiConfig: { funcButtonUI = testFunc, toggleButtonUI, modsButtonUI },
 	mods,
 	funcCard = testFunc,
 }) {
@@ -49,7 +49,11 @@ const Card = function ({
 						</span>
 					</div>
 
-					<BtnUi func={funcButtonUI} mods={modsButtonUI} />
+					<BtnUi
+						func={funcButtonUI}
+						mods={modsButtonUI}
+						toggle={toggleButtonUI}
+					/>
 				</div>
 			</footer>
 		</div>
