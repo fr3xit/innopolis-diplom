@@ -1,6 +1,5 @@
 import moduleClassNameBind from 'classnames/bind';
 import { useSelector, useDispatch } from 'react-redux';
-import { v4 as getID } from 'uuid';
 
 import { removeProductBasket } from '@store/slices/product/product';
 import Card from '@modules/card/Card.jsx';
@@ -21,10 +20,10 @@ const BasketList = function () {
 		<div className={classNameBasketList('basket-list')}>
 			{data.map(item => {
 				const funcButtonUI = () =>
-					dispatch(removeProductBasket(item.productId));
+					dispatch(removeProductBasket(item.basketItemId));
 				return (
 					<Card
-						key={getID()}
+						key={item.basketItemId}
 						mods={[
 							classNameBasketList('basket-list__item'),
 							classNameCard('card_horizontal'),

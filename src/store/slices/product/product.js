@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { updateInfoBasket, getProductBasket } from './productTools';
+
 const productList = require('@data/productsData.json');
 
 const initState = {
@@ -16,35 +18,17 @@ export const productSlice = createSlice({
 	initialState: initState,
 	reducers: {
 		addProductBasket: (state, action) => {
-			state.basket.list.push(
-				state.allProduct.find(item => item.productId === action.payload)
-			);
+			state.basket.list.push(getProductBasket(state, action));
 
-			state.basket.amount++;
-			state.basket.sum =
-				state.basket.sum +
-				Number(
-					state.basket.list.find(item => item.productId === action.payload).price
-				);
+			updateInfoBasket(state);
 		},
 
 		removeProductBasket: (state, action) => {
-			state.basket.sum =
-				state.basket.sum -
-				Number(
-					state.basket.list.find(item => item.productId === action.payload).price
-				);
-
-			// state.basket.list = state.basket.list.filter(
-			// 	item => item.productId !== action.payload
-			// );
-
-			state.basket.list.splice(
-				state.basket.list.find(item => item.productId === action.payload),
-				1
+			state.basket.list = state.basket.list.filter(
+				item => item.basketItemId !== action.payload
 			);
 
-			state.basket.amount--;
+			updateInfoBasket(state);
 		},
 	},
 });
