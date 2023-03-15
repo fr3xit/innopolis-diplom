@@ -1,3 +1,4 @@
+import moduleClassNameBind from 'classnames/bind';
 import { Link } from 'react-router-dom';
 
 import Layout from '@layouts/general/General.jsx';
@@ -10,11 +11,14 @@ import Footer from '@global/footer/Footer';
 import FooterBasket from './elements/basketFooter/Footer';
 import BtnUi from '@modules/button_ui/Button_ui';
 
+import stylesContainer from '@global/container/Container.module.scss';
+const classNameContainer = moduleClassNameBind.bind(stylesContainer);
+
 const Basket = function () {
 	return (
 		<Layout
 			header={
-				<Container mods={'middle'}>
+				<Container mods={[classNameContainer('container_middle')]}>
 					<Header
 						left={
 							<Link to={'/'}>
@@ -26,13 +30,13 @@ const Basket = function () {
 				</Container>
 			}
 			main={
-				<Container mods={'middle'}>
+				<Container mods={[classNameContainer('container_middle')]}>
 					<BasketList />
 				</Container>
 			}
 			footer={
 				<Footer>
-					<Container mods={'middle'}>
+					<Container mods={[classNameContainer('container_middle')]}>
 						<FooterBasket />
 					</Container>
 				</Footer>

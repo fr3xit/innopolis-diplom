@@ -1,26 +1,13 @@
 import moduleClassNameBind from 'classnames/bind';
 
+import { getClasses } from '@js/tools.js';
 import stylesContainer from './Container.module.scss';
 
 const classNameContainer = moduleClassNameBind.bind(stylesContainer);
 
-const checkMods = function (mods) {
-	let result;
-
-	switch (mods) {
-		case 'middle':
-			result = classNameContainer('container_middle');
-			break;
-		default:
-			result = '';
-	}
-
-	return result;
-};
-
-const Сontainer = function ({ children, mods }) {
+const Сontainer = function ({ children, mods = '' }) {
 	return (
-		<div className={classNameContainer('container', checkMods(mods))}>
+		<div className={getClasses(classNameContainer('container'), ...mods)}>
 			{children}
 		</div>
 	);
