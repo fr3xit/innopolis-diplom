@@ -29,7 +29,6 @@ const BasketList = function () {
 							classNameCard('card_horizontal'),
 						]}
 						item={item}
-						// funcButtonUI={funcButtonUI}
 						buttonUiConfig={{
 							funcButtonUI,
 							modsButtonUI: [classNameButtonUi('button_close')],

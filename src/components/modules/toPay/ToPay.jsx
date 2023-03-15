@@ -1,5 +1,6 @@
 import moduleClassNameBind from 'classnames/bind';
 
+import { getClasses } from '@js/tools.js';
 import stylesToPay from './ToPay.module.scss';
 
 const classNameToPay = moduleClassNameBind.bind(stylesToPay);
@@ -10,23 +11,9 @@ const configSum = {
 	minimumFractionDigits: 0,
 };
 
-const checkMods = function (mods) {
-	let result;
-
-	switch (mods) {
-		case 'orange':
-			result = classNameToPay('to-pay_orange');
-			break;
-		default:
-			result = '';
-	}
-
-	return result;
-};
-
-const ToPay = function ({ sum = 0, mods }) {
+const ToPay = function ({ sum = 0, mods = '' }) {
 	return (
-		<div className={classNameToPay('to-pay', checkMods(mods))}>
+		<div className={getClasses(classNameToPay('to-pay'), ...mods)}>
 			<span className={classNameToPay('to-pay__sum')}>
 				{sum.toLocaleString('ru', configSum)}
 			</span>

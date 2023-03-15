@@ -32,5 +32,4 @@ const Basket = function ({ func }) {
 	);
 };
 
-// hour
 export default Basket;
