@@ -4,9 +4,11 @@ import BtnUi from '@modules/button_ui/Button_ui';
 import ToPay from '@modules/toPay/ToPay';
 
 import testFunc from '@js/testFunc';
-import styles from './Card.module.scss';
+import { getClasses } from '@js/tools.js';
+import { getUnits, checkLongTitle } from './cardTools';
+import stylesCard from './Card.module.scss';
 
-const classNameCard = moduleClassNameBind.bind(styles);
+const classNameCard = moduleClassNameBind.bind(stylesCard);
 
 const Card = function ({
 	item: {
@@ -21,31 +23,12 @@ const Card = function ({
 	funcButtonUI = testFunc,
 	funcCard = testFunc,
 }) {
-	mods.find(item => {
-		if (item === classNameCard('card_vertically')) {
-			if (title.length > 25) {
-				title = title.substring(0, 25) + '...';
-			}
-		}
-	});
-
-	let dimension = '';
-
-	switch (units) {
-		case 'grams':
-			dimension = 'г';
-			break;
-		case 'pieces':
-			dimension = 'шт';
-			break;
-		default:
-			dimension = 'шт';
-	}
+	title = checkLongTitle(mods, title);
 
 	return (
 		<div
 			onClick={funcCard}
-			className={[classNameCard('card'), ...mods].join(' ')}>
+			className={getClasses(classNameCard('card'), ...mods)}>
 			<header className={classNameCard('card__header')}>
 				<img className={classNameCard('card__img')} src={url} alt={alt} />
 			</header>
@@ -62,7 +45,7 @@ const Card = function ({
 					<div className={classNameCard('card__result')}>
 						<ToPay sum={price} />
 						<span className={classNameCard('card__amount')}>
-							{` / ${amount} ${dimension} .`}
+							{` / ${amount} ${getUnits(units)} .`}
 						</span>
 					</div>
 

@@ -6,3 +6,7 @@ export const declensionWord = (number, words) => {
 			: cases[number % 10 < 5 ? number % 10 : 5]
 	];
 };
+
+export const getClasses = (...arg) => {
+	return arg.join(' ');
+};
