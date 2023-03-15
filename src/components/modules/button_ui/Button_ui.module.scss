@@ -11,6 +11,38 @@
 		transform: scale(1.2);
 	}
 
+	&__inner {
+		position: relative;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 30px;
+		height: 30px;
+
+		border-radius: 50%;
+		border: 1px solid var(--c-white);
+		cursor: pointer;
+		transition: var(--t-animation) linear;
+	}
+
+	&__line {
+		display: inline-block;
+		min-width: 13px;
+		height: 2px;
+		border-radius: 3px;
+
+		background-color: var(--c-white);
+	}
+
+	&__line:last-child {
+		position: absolute;
+		transform: rotate(90deg);
+	}
+
+	// Mods
+
+	// Close
 	&_close {
 		transform: rotate(45deg);
 	}
@@ -27,6 +59,7 @@
 		background-color: var(--c-accent);
 	}
 
+	// Arrow
 	&_arrow {
 		border-color: var(--c-accent);
 
@@ -72,32 +105,22 @@
 		display: none;
 	}
 
-	&__inner {
-		position: relative;
-
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 30px;
-		height: 30px;
-
-		border-radius: 50%;
-		border: 1px solid var(--c-white);
-		cursor: pointer;
-		transition: var(--t-animation) linear;
+	// Check
+	&_check &__line {
+		background-color: var(--c-accent);
 	}
 
-	&__line {
-		display: inline-block;
-		min-width: 13px;
-		height: 2px;
-		border-radius: 3px;
-
-		background-color: var(--c-white);
+	&_check &__line:first-child {
+		margin-left: 5px;
+		// background-color: green;
+		transform: rotate(-45deg);
 	}
 
-	&__line:last-child {
-		position: absolute;
-		transform: rotate(90deg);
+	&_check &__line:last-child {
+		min-width: 7px;
+		left: 8.5px;
+		top: 14px;
+		// background-color: red;
+		transform: rotate(80deg);
 	}
 }

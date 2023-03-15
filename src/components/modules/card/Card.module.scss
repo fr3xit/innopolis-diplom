@@ -65,7 +65,8 @@
 	// Horizontal
 	&_vertically {
 		flex-direction: column;
-		// gap: 30px;
+		min-height: 550px !important;
+		gap: 20px;
 		padding: 30px 20px;
 	}
 

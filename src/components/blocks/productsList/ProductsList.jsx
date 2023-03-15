@@ -20,20 +20,20 @@ const classNameButtonUi = moduleClassNameBind.bind(stylesButtonUi);
 const ProductsList = function () {
 	const dispatch = useDispatch();
 	const data = useSelector(state => state.product.allProduct);
-	const [selectProduct, setSelectProduct] = useState(false);
+	const [selectProduct, setSelectProduct] = useState();
 
 	const genButtonUiConfig = function (item) {
-		if (selectProduct === true) {
+		if (selectProduct === item.productId) {
 			return {
-				toggleButtonUI: () => setSelectProduct(false),
+				toggleButtonUI: () => setSelectProduct(),
 				funcButtonUI: () => dispatch(removeProductBasket(item.productId)),
-				modsButtonUI: [classNameButtonUi('button_close')],
+				modsButtonUI: [classNameButtonUi('button_check')],
 			};
 		}
 
-		if (selectProduct === false) {
+		if (selectProduct !== item.productId) {
 			return {
-				toggleButtonUI: () => setSelectProduct(true),
+				toggleButtonUI: () => setSelectProduct(item.productId),
 				funcButtonUI: () => dispatch(addProductBasket(item.productId)),
 				modsButtonUI: [],
 			};
