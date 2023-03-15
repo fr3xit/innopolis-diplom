@@ -7,9 +7,11 @@ import Card from '@modules/card/Card.jsx';
 
 import stylesBasketList from './BasketList.module.scss';
 import stylesCard from '@modules/card/Card.module.scss';
+import stylesButtonUi from '@modules/button_ui/Button_ui.module.scss';
 
 const classNameBasketList = moduleClassNameBind.bind(stylesBasketList);
 const classNameCard = moduleClassNameBind.bind(stylesCard);
+const classNameButtonUi = moduleClassNameBind.bind(stylesButtonUi);
 
 const BasketList = function () {
 	const dispatch = useDispatch();
@@ -27,7 +29,11 @@ const BasketList = function () {
 							classNameCard('card_horizontal'),
 						]}
 						item={item}
-						funcButtonUI={funcButtonUI}
+						// funcButtonUI={funcButtonUI}
+						buttonUiConfig={{
+							funcButtonUI,
+							modsButtonUI: [classNameButtonUi('button_close')],
+						}}
 					/>
 				);
 			})}

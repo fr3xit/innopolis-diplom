@@ -19,8 +19,8 @@ const Card = function ({
 		units,
 		img: { url, alt },
 	},
+	buttonUiConfig: { funcButtonUI = testFunc, modsButtonUI },
 	mods,
-	funcButtonUI = testFunc,
 	funcCard = testFunc,
 }) {
 	title = checkLongTitle(mods, title);
@@ -49,7 +49,7 @@ const Card = function ({
 						</span>
 					</div>
 
-					<BtnUi func={funcButtonUI} />
+					<BtnUi func={funcButtonUI} mods={modsButtonUI} />
 				</div>
 			</footer>
 		</div>

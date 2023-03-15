@@ -1,29 +1,14 @@
 import moduleClassNameBind from 'classnames/bind';
 
+import { getClasses } from '@js/tools.js';
 import stylesButtonUi from './Button_ui.module.scss';
 
 const classNameButtonUi = moduleClassNameBind.bind(stylesButtonUi);
 
 const Button_ui = function ({ func, mods }) {
-	const checkMods = function (mods) {
-		let result;
-		switch (mods) {
-			case 'close':
-				result = classNameButtonUi('button_close');
-				break;
-			case 'arrow':
-				result = classNameButtonUi('button_arrow');
-				break;
-			default:
-				result = '';
-		}
-
-		return result;
-	};
-
 	return (
 		<div
-			className={classNameButtonUi('button', checkMods(mods))}
+			className={getClasses(classNameButtonUi('button'), ...mods)}
 			onClick={
 				func
 					? event => {

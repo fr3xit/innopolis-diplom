@@ -12,7 +12,10 @@ import FooterBasket from './elements/basketFooter/Footer';
 import BtnUi from '@modules/button_ui/Button_ui';
 
 import stylesContainer from '@global/container/Container.module.scss';
+import stylesButtonUi from '@modules/button_ui/Button_ui.module.scss';
+
 const classNameContainer = moduleClassNameBind.bind(stylesContainer);
+const classNameButtonUi = moduleClassNameBind.bind(stylesButtonUi);
 
 const Basket = function () {
 	return (
@@ -22,7 +25,7 @@ const Basket = function () {
 					<Header
 						left={
 							<Link to={'/'}>
-								<BtnUi mods={'arrow'} />
+								<BtnUi mods={[classNameButtonUi('button_arrow')]} />
 							</Link>
 						}
 						center={<Title>Корзина с выбранными товарами</Title>}

@@ -35,7 +35,10 @@ const ProductsList = function () {
 							classNameCard('card_vertically'),
 						]}
 						item={item}
-						funcButtonUI={funcButtonUI}
+						buttonUiConfig={{
+							funcButtonUI,
+							modsButtonUI: [],
+						}}
 					/>
 				);
 			})}
