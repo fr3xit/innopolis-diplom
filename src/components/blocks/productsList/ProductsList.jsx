@@ -25,8 +25,8 @@ const ProductsList = function () {
 			{data.map(item => {
 				const funcButtonUI = () =>
 					type === 'add'
-						? dispatch(addProductBasket(item.id))
-						: dispatch(removeProductBasket(item.id));
+						? dispatch(addProductBasket(item.productId))
+						: dispatch(removeProductBasket(item.productId));
 				return (
 					<Card
 						key={getID()}

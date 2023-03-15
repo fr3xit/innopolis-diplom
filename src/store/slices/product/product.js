@@ -17,14 +17,14 @@ export const productSlice = createSlice({
 	reducers: {
 		addProductBasket: (state, action) => {
 			state.basket.list.push(
-				state.allProduct.find(item => item.id === action.payload)
+				state.allProduct.find(item => item.productId === action.payload)
 			);
 
 			state.basket.amount++;
 			state.basket.sum =
 				state.basket.sum +
 				Number(
-					state.basket.list.find(item => item.id === action.payload).price
+					state.basket.list.find(item => item.productId === action.payload).price
 				);
 		},
 
@@ -32,15 +32,15 @@ export const productSlice = createSlice({
 			state.basket.sum =
 				state.basket.sum -
 				Number(
-					state.basket.list.find(item => item.id === action.payload).price
+					state.basket.list.find(item => item.productId === action.payload).price
 				);
 
 			// state.basket.list = state.basket.list.filter(
-			// 	item => item.id !== action.payload
+			// 	item => item.productId !== action.payload
 			// );
 
 			state.basket.list.splice(
-				state.basket.list.find(item => item.id === action.payload),
+				state.basket.list.find(item => item.productId === action.payload),
 				1
 			);
 
