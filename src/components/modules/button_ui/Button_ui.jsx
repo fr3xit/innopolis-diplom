@@ -6,7 +6,7 @@ import stylesButtonUi from './Button_ui.module.scss';
 
 const classNameButtonUi = moduleClassNameBind.bind(stylesButtonUi);
 
-const Button_ui = function ({ func = false, mods = [], toggle }) {
+const Button_ui = function ({ func, mods = [], toggle }) {
 	const [selectProduct, setSelectProduct] = useState(false);
 
 	const getRootClasses = function () {

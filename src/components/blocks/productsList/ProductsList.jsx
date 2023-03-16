@@ -27,12 +27,6 @@ const ProductsList = function () {
 				func: () => dispatch(removeProductBasket(item.productId)),
 				mods: [classNameButtonUi('button_check')],
 			},
-			hoverButtonUI: {
-				// func: () => dispatch(removeProductBasket(item.productId)),
-				// mods: [classNameButtonUi('button_arrow')],
-				mods: [],
-			},
-			modsButtonUI: [],
 		};
 	};
 

@@ -19,12 +19,7 @@ const Card = function ({
 		units,
 		img: { url, alt },
 	},
-	buttonUiConfig: {
-		funcButtonUI = testFunc,
-		toggleButtonUI,
-		hoverButtonUI,
-		modsButtonUI,
-	},
+	buttonUiConfig: { funcButtonUI, toggleButtonUI, modsButtonUI },
 	mods,
 	funcCard = testFunc,
 }) {
@@ -58,7 +53,6 @@ const Card = function ({
 						func={funcButtonUI}
 						mods={modsButtonUI}
 						toggle={toggleButtonUI}
-						hover={hoverButtonUI}
 					/>
 				</div>
 			</footer>
