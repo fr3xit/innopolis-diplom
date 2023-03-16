@@ -27,6 +27,7 @@
 	&__title {
 		margin-bottom: 15px;
 
+		font-weight: 500;
 		cursor: pointer;
 		transition: var(--t-animation) linear;
 
@@ -58,7 +59,14 @@
 
 	&__sum {}
 
-	&__amount {}
+	&__amount {
+		align-self: flex-end;
+	}
+
+	&__amount-separator {
+		font-size: 21px;
+		font-weight: 500;
+	}
 
 	// Mods
 
@@ -82,6 +90,7 @@
 			flex-wrap: wrap;
 		}
 	}
+
 
 	&_horizontal &__img {
 		max-width: 132px;
@@ -117,6 +126,10 @@
 	}
 
 	&_horizontal &__amount {
+		display: none;
+	}
+
+	&_horizontal &__amount-separator {
 		display: none;
 	}
 }

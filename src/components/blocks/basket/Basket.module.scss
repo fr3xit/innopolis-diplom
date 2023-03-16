@@ -7,6 +7,8 @@
 	cursor: pointer;
 	transition: var(--t-animation) linear;
 
+	font-weight: 500;
+
 	&:active {
 		opacity: .3;
 	}

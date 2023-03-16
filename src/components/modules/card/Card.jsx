@@ -6,9 +6,12 @@ import ToPay from '@modules/toPay/ToPay';
 import testFunc from '@js/testFunc';
 import { getClasses } from '@js/tools.js';
 import { getUnits, checkLongTitle } from './cardTools';
+
 import stylesCard from './Card.module.scss';
+import stylesToPay from '../../modules/toPay/ToPay.module.scss';
 
 const classNameCard = moduleClassNameBind.bind(stylesCard);
+const classNameToPay = moduleClassNameBind.bind(stylesToPay);
 
 const Card = function ({
 	item: {
@@ -43,9 +46,17 @@ const Card = function ({
 			<footer className={classNameCard('card__footer')}>
 				<div className={classNameCard('card__price')}>
 					<div className={classNameCard('card__result')}>
-						<ToPay sum={price} />
+						<ToPay
+							sum={price}
+							mods={[
+								mods.includes(classNameCard('card_horizontal'))
+									? classNameToPay('to-pay_middle')
+									: '',
+							]}
+						/>
+						<span className={classNameCard('card__amount-separator')}>/</span>
 						<span className={classNameCard('card__amount')}>
-							{` / ${amount} ${getUnits(units)} .`}
+							{`${amount} ${getUnits(units)} .`}
 						</span>
 					</div>
 

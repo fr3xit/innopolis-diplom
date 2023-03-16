@@ -16,7 +16,13 @@ const Footer = function () {
 		<div className={classNameFooter('basket-footer')}>
 			<div className={classNameFooter('basket-footer__info')}>
 				<span>Заказ на сумму:</span>
-				<ToPay sum={price} mods={[classNameToPay('to-pay_orange')]} />
+				<ToPay
+					sum={price}
+					mods={[
+						classNameToPay('to-pay_orange'),
+						classNameToPay('to-pay_middle'),
+					]}
+				/>
 			</div>
 			<Button>Оформить заказ</Button>
 		</div>

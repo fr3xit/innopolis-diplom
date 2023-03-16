@@ -3,6 +3,7 @@
 	min-height: 45px;
 
 	color: var(--c-dark);
+	font-size: 14px;
 	background-color: var(--c-accent);
 	border: 5px solid transparent;
 	transition: var(--t-animation) linear;
@@ -11,6 +12,8 @@
 		border-left-color: var(--c-dark);
 		border-right-color: var(--c-dark);
 		box-shadow: 0 0 10px var(--c-accent);
+		text-shadow: 0 0 10px var(--c-dark);
+
 	}
 
 	&:active {
