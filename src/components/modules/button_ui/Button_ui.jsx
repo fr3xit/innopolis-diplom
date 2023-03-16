@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import moduleClassNameBind from 'classnames/bind';
+import { useCallback } from 'react';
 
 import { getClasses } from '@js/tools.js';
 import stylesButtonUi from './Button_ui.module.scss';
@@ -17,7 +18,7 @@ const Button_ui = function ({ func, mods = [], toggle }) {
 		}
 	};
 
-	const handler = function (event) {
+	const handler = useCallback(function (event) {
 		if (func) {
 			event.stopPropagation();
 			if (selectProduct && toggle.func()) {
@@ -28,7 +29,7 @@ const Button_ui = function ({ func, mods = [], toggle }) {
 				setSelectProduct(true);
 			}
 		}
-	};
+	});
 
 	return (
 		<div className={getRootClasses()} onClick={handler}>

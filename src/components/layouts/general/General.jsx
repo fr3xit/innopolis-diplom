@@ -6,20 +6,28 @@ import stylesGeneral from './General.module.scss';
 const classNameGeneral = moduleClassNameBind.bind(stylesGeneral);
 
 const General = function ({ header, main, footer }) {
-	const elementHeader = useRef(null);
-	const elementMain = useRef(null);
-	const elementFooter = useRef(null);
+	const elementHeader = useRef();
+	const elementMain = useRef();
+	const elementFooter = useRef();
+	const extraIndent = 30;
+
+	const updateSize = () => {
+		try {
+			const styleMain = elementMain.current.style;
+
+			styleMain.paddingTop = `${
+				elementHeader.current.offsetHeight + extraIndent
+			}px`;
+
+			styleMain.paddingBottom = `${
+				elementFooter.current.offsetHeight + extraIndent
+			}px`;
+		} catch {}
+	};
 
 	useEffect(() => {
-		const extraIndent = 30;
-
-		elementMain.current.style.paddingTop = `${
-			elementHeader.current.offsetHeight + extraIndent
-		}px`;
-
-		elementMain.current.style.paddingBottom = `${
-			elementFooter.current.offsetHeight + extraIndent
-		}px`;
+		window.addEventListener('resize', updateSize);
+		updateSize();
 	}, []);
 
 	return (
