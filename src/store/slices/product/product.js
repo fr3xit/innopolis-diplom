@@ -33,10 +33,12 @@ export const productSlice = createSlice({
 		},
 
 		removeProductBasket: (state, action) => {
-			console.log(action.payload);
-			state.basket.list = state.basket.list.filter(
-				item => item.productId !== action.payload
-			);
+			state.basket.list = state.basket.list.filter(item => {
+				return !(
+					item.basketItemId === action.payload ||
+					item.productId === action.payload
+				);
+			});
 
 			updateInfoBasket(state);
 		},

@@ -89,11 +89,12 @@
 	}
 
 	&_horizontal &__main {
-
 		padding-left: 90px;
+		padding-right: 15px;
 
 		@media (max-width: 920px) {
-			padding-left: 0px;
+			padding-top: 15px;
+			padding-left: 15px;
 		}
 	}
 

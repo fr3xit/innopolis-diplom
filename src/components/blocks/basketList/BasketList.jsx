@@ -20,7 +20,7 @@ const BasketList = function () {
 		<div className={classNameBasketList('basket-list')}>
 			{data.map(item => {
 				const funcButtonUI = () =>
-					dispatch(removeProductBasket(item.productId));
+					dispatch(removeProductBasket(item.basketItemId));
 				return (
 					<Card
 						key={item.basketItemId}

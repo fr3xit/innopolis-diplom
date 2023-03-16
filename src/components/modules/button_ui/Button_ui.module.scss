@@ -108,10 +108,12 @@
 
 // Check
 .button_check {
+
 	&:hover .button__inner .button__line:first-child {
 		margin: 0;
 		transform: rotate(0deg);
 		background-color: var(--c-white);
+		transition: var(--t-animation) linear;
 	}
 
 	&:hover .button__inner .button__line:last-child {

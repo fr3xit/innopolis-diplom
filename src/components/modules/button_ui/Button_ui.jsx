@@ -2,53 +2,36 @@ import { useState } from 'react';
 import moduleClassNameBind from 'classnames/bind';
 
 import { getClasses } from '@js/tools.js';
-import testFunc from '@js/testFunc';
 import stylesButtonUi from './Button_ui.module.scss';
 
 const classNameButtonUi = moduleClassNameBind.bind(stylesButtonUi);
 
-const Button_ui = function ({
-	func,
-	mods = [],
-	toggle: { func: toggleFunc, mods: toggleMods } = {
-		toggle: testFunc,
-		mods: [],
-	},
-}) {
+const Button_ui = function ({ func = false, mods = [], toggle }) {
 	const [selectProduct, setSelectProduct] = useState(false);
 
 	const getRootClasses = function () {
-		if (selectProduct) {
-			return getClasses(classNameButtonUi('button'), ...mods, ...toggleMods);
+		if (selectProduct && toggle.mods) {
+			return getClasses(classNameButtonUi('button'), ...mods, ...toggle.mods);
 		} else {
 			return getClasses(classNameButtonUi('button'), ...mods);
 		}
 	};
 
-	const handler = function () {
-		if (selectProduct) {
-			console.log('Выбран');
-			toggleFunc();
-			setSelectProduct(false);
-		} else if (func) {
-			console.log('Не выбран');
-			func();
-			// toggleFunc();
-			setSelectProduct(true);
+	const handler = function (event) {
+		if (func) {
+			event.stopPropagation();
+			if (selectProduct && toggle.func()) {
+				toggle.func();
+				setSelectProduct(false);
+			} else if (func) {
+				func();
+				setSelectProduct(true);
+			}
 		}
 	};
 
 	return (
-		<div
-			className={getRootClasses()}
-			onClick={
-				func
-					? event => {
-							event.stopPropagation();
-							handler();
-					  }
-					: ''
-			}>
+		<div className={getRootClasses()} onClick={handler}>
 			<div className={classNameButtonUi('button__inner')}>
 				<span className={classNameButtonUi('button__line')}></span>
 				<span className={classNameButtonUi('button__line')}></span>
