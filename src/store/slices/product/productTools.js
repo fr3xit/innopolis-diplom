@@ -17,7 +17,8 @@ export const getProductBasket = function (state, action) {
 	let product = state.allProduct.find(
 		item => item.productId === action.payload
 	);
+
 	product = { ...product, ...newData };
-	console.log(product.id);
+
 	return product;
 };

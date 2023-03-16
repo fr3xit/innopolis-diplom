@@ -39,84 +39,96 @@
 		position: absolute;
 		transform: rotate(90deg);
 	}
+}
 
-	// Mods
+// Mods
 
-	// Close
-	&_close {
-		transform: rotate(45deg);
-	}
+// Close
+.button_close {
+	transform: rotate(45deg);
 
-	&_close:hover .button__inner {
+	&:hover .button__inner {
 		background-color: var(--c-white);
 	}
 
-	&_close &__inner {
+	.button__inner {
 		border-color: var(--c-accent);
 	}
 
-	&_close &__line {
+	.button__line {
+		background-color: var(--c-accent);
+	}
+}
+
+// Arrow
+.button_arrow {
+	border-color: var(--c-accent);
+
+	& span::after,
+	& span::before {
+		position: absolute;
+		left: 7px;
+
+		content: "";
+
+		min-width: 7px;
+		min-height: 2px;
+
+		border-radius: 3px;
 		background-color: var(--c-accent);
 	}
 
-	// Arrow
-	&_arrow {
-		border-color: var(--c-accent);
-
-		& span::after,
-		& span::before {
-			position: absolute;
-			left: 7px;
-
-			content: "";
-
-			min-width: 7px;
-			min-height: 2px;
-
-			border-radius: 3px;
-			background-color: var(--c-accent);
-		}
-
-		& span::before {
-			top: 11px;
-			transform: rotate(-45deg);
-		}
-
-		& span::after {
-			top: 15px;
-			transform: rotate(45deg);
-		}
+	& span::before {
+		top: 11px;
+		transform: rotate(-45deg);
 	}
 
-	&_arrow:hover .button__inner {
+	& span::after {
+		top: 15px;
+		transform: rotate(45deg);
+	}
+
+	&:hover .button__inner {
 		background-color: var(--c-white);
 	}
 
-	&_arrow &__inner {
+	.button__inner {
 		border-color: var(--c-accent);
 	}
 
-	&_arrow &__line {
+	.button__line {
 		min-width: 10px;
 		background-color: var(--c-accent);
 	}
 
-	&_arrow &__line:last-child {
+	.button__line:last-child {
+		display: none;
+	}
+}
+
+// Check
+.button_check {
+	&:hover .button__inner .button__line:first-child {
+		margin: 0;
+		transform: rotate(0deg);
+		background-color: var(--c-white);
+	}
+
+	&:hover .button__inner .button__line:last-child {
 		display: none;
 	}
 
-	// Check
-	&_check &__line {
+	.button__line {
 		background-color: var(--c-accent);
 	}
 
-	&_check &__line:first-child {
+	.button__line:first-child {
 		margin-left: 5px;
 		// background-color: green;
 		transform: rotate(-45deg);
 	}
 
-	&_check &__line:last-child {
+	.button__line:last-child {
 		min-width: 7px;
 		left: 8.5px;
 		top: 14px;
