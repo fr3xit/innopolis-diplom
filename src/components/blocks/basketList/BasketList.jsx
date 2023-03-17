@@ -1,7 +1,10 @@
 import moduleClassNameBind from 'classnames/bind';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { removeProductBasket } from '@store/slices/product/product';
+import {
+	removeProductBasket,
+	expandProductData,
+} from '@store/slices/product/product';
 import Card from '@modules/card/Card.jsx';
 
 import stylesBasketList from './BasketList.module.scss';
@@ -16,11 +19,14 @@ const BasketList = function () {
 	const dispatch = useDispatch();
 	const data = useSelector(state => state.product.basket.list);
 
+	const genButtonUiConfig = (item, isAdded) => () => {
+		console.log(isAdded);
+		dispatch(expandProductData({ id: item.productId, data: { added: false } }));
+		dispatch(removeProductBasket(item.basketItemId));
+	};
 	return (
 		<div className={classNameBasketList('basket-list')}>
 			{data.map(item => {
-				const funcButtonUI = () =>
-					dispatch(removeProductBasket(item.basketItemId));
 				return (
 					<Card
 						key={item.basketItemId}
@@ -30,7 +36,7 @@ const BasketList = function () {
 						]}
 						item={item}
 						buttonUiConfig={{
-							funcButtonUI,
+							funcButtonUI: genButtonUiConfig(item, item.added),
 							modsButtonUI: [classNameButtonUi('button_close')],
 						}}
 					/>

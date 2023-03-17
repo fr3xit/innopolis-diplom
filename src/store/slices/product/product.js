@@ -52,9 +52,10 @@ export const productSlice = createSlice({
 		},
 
 		toggleAddedProduct: (state, action) => {
-			state.allProduct = state.allProduct.forEach(
-				item => (item.added = !item.added)
-			);
+			console.log('Я переключатель');
+			// state.allProduct = state.allProduct.forEach(
+			// 	item => (item.added = !item.added)
+			// );
 		},
 
 		addProductBasket: (state, action) => {

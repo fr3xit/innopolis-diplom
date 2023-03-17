@@ -37,8 +37,7 @@ const Button_ui = function ({
 				func();
 				setSelectProduct(true);
 			}
-			console.log('toggle.status = ', toggle.status);
-			console.log('electProduct = ', selectProduct);
+
 			toggle.funcAdded(!toggle.status);
 		}
 	});
