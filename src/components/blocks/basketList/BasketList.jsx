@@ -1,3 +1,4 @@
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import moduleClassNameBind from 'classnames/bind';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -25,22 +26,30 @@ const BasketList = function () {
 	};
 	return (
 		<div className={classNameBasketList('basket-list')}>
-			{data.map(item => {
-				return (
-					<Card
-						key={item.basketItemId}
-						mods={[
-							classNameBasketList('basket-list__item'),
-							classNameCard('card_horizontal'),
-						]}
-						item={item}
-						buttonUiConfig={{
-							funcButtonUI: genButtonUiConfig(item),
-							modsButtonUI: [classNameButtonUi('button_close')],
-						}}
-					/>
-				);
-			})}
+			<TransitionGroup component={null}>
+				{data.map(item => {
+					return (
+						<CSSTransition
+							key={item.basketItemId}
+							timeout={300}
+							classNames={{
+								exitActive: classNameBasketList('item__remove'),
+							}}>
+							<Card
+								mods={[
+									classNameBasketList('basket-list__item'),
+									classNameCard('card_horizontal'),
+								]}
+								item={item}
+								buttonUiConfig={{
+									funcButtonUI: genButtonUiConfig(item),
+									modsButtonUI: [classNameButtonUi('button_close')],
+								}}
+							/>
+						</CSSTransition>
+					);
+				})}
+			</TransitionGroup>
 		</div>
 	);
 };

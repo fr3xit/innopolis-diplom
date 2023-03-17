@@ -4,4 +4,14 @@
 	flex-direction: column;
 
 	&__item {}
+
+
+}
+
+// Анимация
+
+.item__remove {
+	opacity: 0.1;
+	transition: 300ms ease-in;
+	transform: scale(0.7) !important;
 }
