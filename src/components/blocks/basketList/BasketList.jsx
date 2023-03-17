@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
 	removeProductBasket,
 	expandProductData,
+	toggleAddedProduct,
 } from '@store/slices/product/product';
 import Card from '@modules/card/Card.jsx';
 
@@ -20,7 +21,8 @@ const BasketList = function () {
 	const data = useSelector(state => state.product.basket.list);
 
 	const genButtonUiConfig = item => () => {
-		dispatch(expandProductData({ id: item.productId, data: { added: false } }));
+		dispatch(toggleAddedProduct(item.productId));
+
 		dispatch(removeProductBasket(item.basketItemId));
 	};
 	return (

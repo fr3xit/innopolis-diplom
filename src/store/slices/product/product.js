@@ -52,10 +52,20 @@ export const productSlice = createSlice({
 		},
 
 		toggleAddedProduct: (state, action) => {
-			console.log('Я переключатель');
-			// state.allProduct = state.allProduct.forEach(
-			// 	item => (item.added = !item.added)
-			// );
+			const id = action.payload;
+			const allProduct = state.allProduct;
+			const indexProduct = allProduct.findIndex(item => item.productId === id);
+
+			if (indexProduct !== -1) {
+				if (state.allProduct[indexProduct].added) {
+					console.log('Выбран');
+					state.allProduct[indexProduct].added =
+						!state.allProduct[indexProduct].added;
+				} else {
+					console.log('Не выбран');
+					state.allProduct[indexProduct].added = true;
+				}
+			}
 		},
 
 		addProductBasket: (state, action) => {
