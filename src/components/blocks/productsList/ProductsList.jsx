@@ -28,6 +28,7 @@ const ProductsList = function () {
 				func: () => dispatch(removeProductBasket(item.productId)),
 				status: item.added === !true ? true : false,
 				funcAdded: value => {
+					console.log(item.added);
 					dispatch(
 						expandProductData({ id: item.productId, data: { added: value } })
 					);
@@ -48,7 +49,7 @@ const ProductsList = function () {
 							classNameCard('card_vertically'),
 						]}
 						item={item}
-						buttonUiConfig={genButtonUiConfig(item)}
+						buttonUiConfig={genButtonUiConfig(item, item.added)}
 					/>
 				);
 			})}

@@ -7,8 +7,17 @@ import stylesButtonUi from './Button_ui.module.scss';
 
 const classNameButtonUi = moduleClassNameBind.bind(stylesButtonUi);
 
-const Button_ui = function ({ func, mods = [], toggle }) {
-	const [selectProduct, setSelectProduct] = useState(toggle.status);
+const Button_ui = function ({
+	func,
+	mods = [],
+	toggle = {
+		status: false,
+		funcAdded: () => 1 + 1,
+	},
+}) {
+	const [selectProduct, setSelectProduct] = useState(
+		toggle.status ? toggle.status : false
+	);
 
 	const getRootClasses = function () {
 		if (selectProduct && toggle.mods) {
@@ -28,7 +37,8 @@ const Button_ui = function ({ func, mods = [], toggle }) {
 				func();
 				setSelectProduct(true);
 			}
-			console.log(toggle.status);
+			console.log('toggle.status = ', toggle.status);
+			console.log('electProduct = ', selectProduct);
 			toggle.funcAdded(selectProduct);
 		}
 	});
