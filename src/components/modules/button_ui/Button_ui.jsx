@@ -1,8 +1,6 @@
-import { useState } from 'react';
 import moduleClassNameBind from 'classnames/bind';
-import { useCallback } from 'react';
 
-import { getClasses } from '@js/tools.js';
+import { handler, getRootClasses } from './buttonUiTools';
 import stylesButtonUi from './Button_ui.module.scss';
 
 const classNameButtonUi = moduleClassNameBind.bind(stylesButtonUi);
@@ -15,35 +13,10 @@ const Button_ui = function ({
 		funcAdded: () => 1 + 1,
 	},
 }) {
-	const [selectProduct, setSelectProduct] = useState(
-		toggle.status ? toggle.status : false
-	);
-
-	const getRootClasses = function () {
-		if (selectProduct && toggle.mods) {
-			return getClasses(classNameButtonUi('button'), ...mods, ...toggle.mods);
-		} else {
-			return getClasses(classNameButtonUi('button'), ...mods);
-		}
-	};
-
-	const handler = useCallback(function (event) {
-		if (func) {
-			event.stopPropagation();
-			if (selectProduct && toggle.func()) {
-				toggle.func();
-				setSelectProduct(false);
-			} else if (func) {
-				func();
-				setSelectProduct(true);
-			}
-
-			toggle.funcAdded(!toggle.status);
-		}
-	});
-
 	return (
-		<div className={getRootClasses()} onClick={handler}>
+		<div
+			className={getRootClasses(toggle, mods, classNameButtonUi)}
+			onClick={event => handler(event, func, toggle)}>
 			<div className={classNameButtonUi('button__inner')}>
 				<span className={classNameButtonUi('button__line')}></span>
 				<span className={classNameButtonUi('button__line')}></span>
