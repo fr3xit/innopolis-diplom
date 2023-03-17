@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { v4 as getID } from 'uuid';
 
 import {
+	expandProductData,
 	addProductBasket,
 	removeProductBasket,
 } from '@store/slices/product/product';
@@ -25,6 +26,12 @@ const ProductsList = function () {
 			funcButtonUI: () => dispatch(addProductBasket(item.productId)),
 			toggleButtonUI: {
 				func: () => dispatch(removeProductBasket(item.productId)),
+				status: item.added === !true ? true : false,
+				funcAdded: value => {
+					dispatch(
+						expandProductData({ id: item.productId, data: { added: value } })
+					);
+				},
 				mods: [classNameButtonUi('button_check')],
 			},
 		};
@@ -32,17 +39,19 @@ const ProductsList = function () {
 
 	return (
 		<div className={classNameProductsList('products-list')}>
-			{data.map(item => (
-				<Card
-					key={getID()}
-					mods={[
-						classNameProductsList('products-list__item'),
-						classNameCard('card_vertically'),
-					]}
-					item={item}
-					buttonUiConfig={genButtonUiConfig(item)}
-				/>
-			))}
+			{data.map(item => {
+				return (
+					<Card
+						key={getID()}
+						mods={[
+							classNameProductsList('products-list__item'),
+							classNameCard('card_vertically'),
+						]}
+						item={item}
+						buttonUiConfig={genButtonUiConfig(item)}
+					/>
+				);
+			})}
 		</div>
 	);
 };

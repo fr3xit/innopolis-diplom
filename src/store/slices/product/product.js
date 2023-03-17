@@ -18,12 +18,43 @@ export const productSlice = createSlice({
 	initialState: initState,
 	reducers: {
 		expandProductData: (state, action) => {
+			const { id, data: newData } = action.payload;
+			const { allProduct } = state;
+			const currentProduct = allProduct.find(item => item.productId === id);
+			const updatedProductData = {
+				...currentProduct,
+				...newData,
+			};
+
+			const indexToUpdate = allProduct.findIndex(item => item.productId === id);
+
+			if (indexToUpdate !== -1) {
+				state.allProduct[indexToUpdate] = {
+					...updatedProductData,
+				};
+			}
+			// console.log(updatedProductData);
+			// state.allProduct = state.allProduct.map(item => {
+			// 	// console.log(item);
+			// 	// if (item.productId === action.payload.id) {
+			// 	// 	// item = updatedProduct;
+			// 	// }
+			// });
+
+			// console.log(updatedProduct);
+
 			// state.allProduct = [
 			// 	...(state.allProduct[action.payload.id] = {
 			// 		...state.allProduct[action.payload.id],
 			// 		...action.payload.data,
 			// 	}),
 			// ];
+		},
+
+		toggleAddedProduct: (state, action) => {
+			state.allProduct = state.allProduct.forEach(
+				item => (item.added = !item.added)
+			);
 		},
 
 		addProductBasket: (state, action) => {
@@ -45,7 +76,11 @@ export const productSlice = createSlice({
 	},
 });
 
-export const { expandProductData, addProductBasket, removeProductBasket } =
-	productSlice.actions;
+export const {
+	expandProductData,
+	toggleAddedProduct,
+	addProductBasket,
+	removeProductBasket,
+} = productSlice.actions;
 
 export default productSlice.reducer;
