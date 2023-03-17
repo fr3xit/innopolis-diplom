@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import {
 	removeProductBasket,
-	expandProductData,
 	toggleAddedProduct,
 } from '@store/slices/product/product';
 import Card from '@modules/card/Card.jsx';
@@ -22,7 +21,6 @@ const BasketList = function () {
 
 	const genButtonUiConfig = item => () => {
 		dispatch(toggleAddedProduct(item.productId));
-
 		dispatch(removeProductBasket(item.basketItemId));
 	};
 	return (
