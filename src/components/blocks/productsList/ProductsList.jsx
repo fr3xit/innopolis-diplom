@@ -28,7 +28,6 @@ const ProductsList = function () {
 				func: () => dispatch(removeProductBasket(item.productId)),
 				status: isAdded === true ? true : false,
 				funcAdded: value => {
-					console.log('isAdded = ', isAdded);
 					dispatch(
 						expandProductData({ id: item.productId, data: { added: value } })
 					);

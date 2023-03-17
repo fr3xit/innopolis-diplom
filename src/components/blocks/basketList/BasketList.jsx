@@ -19,8 +19,7 @@ const BasketList = function () {
 	const dispatch = useDispatch();
 	const data = useSelector(state => state.product.basket.list);
 
-	const genButtonUiConfig = (item, isAdded) => () => {
-		console.log(isAdded);
+	const genButtonUiConfig = item => () => {
 		dispatch(expandProductData({ id: item.productId, data: { added: false } }));
 		dispatch(removeProductBasket(item.basketItemId));
 	};
@@ -36,7 +35,7 @@ const BasketList = function () {
 						]}
 						item={item}
 						buttonUiConfig={{
-							funcButtonUI: genButtonUiConfig(item, item.added),
+							funcButtonUI: genButtonUiConfig(item),
 							modsButtonUI: [classNameButtonUi('button_close')],
 						}}
 					/>
