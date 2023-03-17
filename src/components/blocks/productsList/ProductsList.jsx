@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { v4 as getID } from 'uuid';
 
 import {
-	expandProductData,
 	addProductBasket,
 	removeProductBasket,
 	toggleAddedProduct,
