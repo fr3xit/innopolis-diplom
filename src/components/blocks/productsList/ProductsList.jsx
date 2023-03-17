@@ -21,14 +21,14 @@ const ProductsList = function () {
 	const dispatch = useDispatch();
 	const data = useSelector(state => state.product.allProduct);
 
-	const genButtonUiConfig = function (item) {
+	const genButtonUiConfig = function (item, isAdded) {
 		return {
 			funcButtonUI: () => dispatch(addProductBasket(item.productId)),
 			toggleButtonUI: {
 				func: () => dispatch(removeProductBasket(item.productId)),
-				status: item.added === !true ? true : false,
+				status: isAdded === true ? true : false,
 				funcAdded: value => {
-					console.log(item.added);
+					console.log('isAdded = ', isAdded);
 					dispatch(
 						expandProductData({ id: item.productId, data: { added: value } })
 					);

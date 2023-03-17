@@ -39,7 +39,7 @@ const Button_ui = function ({
 			}
 			console.log('toggle.status = ', toggle.status);
 			console.log('electProduct = ', selectProduct);
-			toggle.funcAdded(selectProduct);
+			toggle.funcAdded(!toggle.status);
 		}
 	});
 
