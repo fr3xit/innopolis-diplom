@@ -10,7 +10,7 @@ const Button_ui = function ({
 	mods = [],
 	toggle = {
 		status: false,
-		funcAdded: () => 1 + 1,
+		funcToggle: () => 1 + 1,
 	},
 }) {
 	return (

@@ -6,6 +6,7 @@ import {
 	expandProductData,
 	addProductBasket,
 	removeProductBasket,
+	toggleAddedProduct,
 } from '@store/slices/product/product';
 import Card from '@modules/card/Card.jsx';
 
@@ -23,16 +24,14 @@ const ProductsList = function () {
 
 	const genButtonUiConfig = function (item, isAdded) {
 		return {
-			funcButtonUI: () => dispatch(addProductBasket(item.productId)),
+			funcButtonUI: () => {
+				dispatch(addProductBasket(item.productId));
+			},
 			toggleButtonUI: {
-				func: () => dispatch(removeProductBasket(item.productId)),
 				status: isAdded === true ? true : false,
-				funcAdded: value => {
-					dispatch(
-						expandProductData({ id: item.productId, data: { added: value } })
-					);
-				},
 				mods: [classNameButtonUi('button_check')],
+				funcRemove: () => dispatch(removeProductBasket(item.productId)),
+				funcToggle: () => dispatch(toggleAddedProduct(item.productId)),
 			},
 		};
 	};

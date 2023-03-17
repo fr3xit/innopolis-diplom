@@ -26,45 +26,27 @@ export const productSlice = createSlice({
 				...newData,
 			};
 
-			const indexToUpdate = allProduct.findIndex(item => item.productId === id);
+			const indexProductToUpdate = allProduct.findIndex(
+				item => item.productId === id
+			);
 
-			if (indexToUpdate !== -1) {
-				state.allProduct[indexToUpdate] = {
+			if (indexProductToUpdate !== -1) {
+				state.allProduct[indexProductToUpdate] = {
 					...updatedProductData,
 				};
 			}
-			// console.log(updatedProductData);
-			// state.allProduct = state.allProduct.map(item => {
-			// 	// console.log(item);
-			// 	// if (item.productId === action.payload.id) {
-			// 	// 	// item = updatedProduct;
-			// 	// }
-			// });
-
-			// console.log(updatedProduct);
-
-			// state.allProduct = [
-			// 	...(state.allProduct[action.payload.id] = {
-			// 		...state.allProduct[action.payload.id],
-			// 		...action.payload.data,
-			// 	}),
-			// ];
 		},
 
 		toggleAddedProduct: (state, action) => {
 			const id = action.payload;
 			const allProduct = state.allProduct;
 			const indexProduct = allProduct.findIndex(item => item.productId === id);
+			const currentProduct = allProduct[indexProduct];
 
-			if (indexProduct !== -1) {
-				if (state.allProduct[indexProduct].added) {
-					console.log('Выбран');
-					state.allProduct[indexProduct].added =
-						!state.allProduct[indexProduct].added;
-				} else {
-					console.log('Не выбран');
-					state.allProduct[indexProduct].added = true;
-				}
+			if (indexProduct !== -1 && currentProduct.added) {
+				currentProduct.added = !currentProduct.added;
+			} else if (indexProduct !== -1) {
+				currentProduct.added = true;
 			}
 		},
 

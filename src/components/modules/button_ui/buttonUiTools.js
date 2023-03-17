@@ -3,13 +3,13 @@ import { getClasses } from '@js/tools.js';
 export const handler = (event, func, toggle) => {
 	if (func) {
 		event.stopPropagation();
-		if (toggle.status && toggle.func()) {
-			toggle.func();
+		if (toggle.status && toggle.funcRemove()) {
+			toggle.funcRemove();
 		} else if (func) {
 			func();
 		}
 
-		toggle.funcAdded(!toggle.status);
+		toggle.funcToggle();
 	}
 };
 
