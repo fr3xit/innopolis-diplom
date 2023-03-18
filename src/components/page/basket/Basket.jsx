@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Layout from '@layouts/general/General.jsx';
 import Header from '@global/header/Header';
 import Title from '@global/header/elements/title/Title';
-
 import Container from '@global/container/Container';
 import BasketList from '@blocks/basketList/BasketList';
 import Footer from '@global/footer/Footer';

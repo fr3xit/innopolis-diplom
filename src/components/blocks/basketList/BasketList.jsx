@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import moduleClassNameBind from 'classnames/bind';
 import { useSelector, useDispatch } from 'react-redux';

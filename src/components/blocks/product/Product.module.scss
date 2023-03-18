@@ -1,0 +1,38 @@
+.product {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	&>div {
+		flex: 0 1 500px;
+	}
+
+	&__img {
+		width: 100%;
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	&__content {}
+
+	&__title {
+		margin-bottom: 20px;
+
+		font-size: 30px;
+		font-weight: 500;
+		color: var(--c-accent);
+	}
+
+	&__desc {
+		margin-bottom: 30px;
+	}
+
+	&__footer {
+		display: flex;
+		gap: 70px;
+		align-items: center;
+	}
+}
