@@ -1,13 +1,13 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import Products from '@page/products/Products';
+import Catalog from '@page/catalog/Catalog';
 import Basket from '@page/basket/Basket';
 import NotFound from '@page/notFound/NotFound';
 
 export const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <Products />,
+		element: <Catalog />,
 	},
 	{
 		path: '/basket',

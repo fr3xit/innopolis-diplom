@@ -5,9 +5,9 @@ import Container from '@global/container/Container';
 import Header from '@global/header/Header';
 import Title from '@global/header/elements/title/Title';
 import Basket from '@blocks/basket/Basket';
-import ProductsList from '@blocks/productsList/ProductsList';
+import CatalogList from '@blocks/catalogList/CatalogList';
 
-const Products = function () {
+const Catalog = function () {
 	return (
 		<Layout
 			header={
@@ -24,11 +24,11 @@ const Products = function () {
 			}
 			main={
 				<Container>
-					<ProductsList />
+					<CatalogList />
 				</Container>
 			}
 		/>
 	);
 };
 
-export default Products;
+export default Catalog;
