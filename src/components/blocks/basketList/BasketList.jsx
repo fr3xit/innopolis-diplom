@@ -25,33 +25,30 @@ const BasketList = function () {
 		dispatch(toggleAddedProduct(item.productId));
 		dispatch(removeProductBasket(item.basketItemId));
 	};
-	const item = useRef();
+
 	return (
 		<div className={classNameBasketList('basket-list')}>
 			<TransitionGroup component={null}>
-				{data.map(item => {
-					return (
-						<CSSTransition
-							key={item.basketItemId}
-							nodeRef={item}
-							timeout={300}
-							classNames={{
-								exitActive: classNameBasketList('item__remove'),
-							}}>
-							<Card
-								mods={[
-									classNameBasketList('basket-list__item'),
-									classNameCard('card_horizontal'),
-								]}
-								item={item}
-								buttonUiConfig={{
-									funcButtonUI: genButtonUiConfig(item),
-									modsButtonUI: [classNameButtonUi('button_close')],
-								}}
-							/>
-						</CSSTransition>
-					);
-				})}
+				{data.map(item => (
+					<CSSTransition
+						key={item.basketItemId}
+						timeout={300}
+						classNames={{
+							exitActive: classNameBasketList('item__remove'),
+						}}>
+						<Card
+							mods={[
+								classNameBasketList('basket-list__item'),
+								classNameCard('card_horizontal'),
+							]}
+							item={item}
+							buttonUiConfig={{
+								funcButtonUI: genButtonUiConfig(item),
+								modsButtonUI: [classNameButtonUi('button_close')],
+							}}
+						/>
+					</CSSTransition>
+				))}
 			</TransitionGroup>
 		</div>
 	);
