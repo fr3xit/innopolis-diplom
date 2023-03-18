@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import moduleClassNameBind from 'classnames/bind';
 import { useSelector, useDispatch } from 'react-redux';
@@ -24,6 +25,7 @@ const BasketList = function () {
 		dispatch(toggleAddedProduct(item.productId));
 		dispatch(removeProductBasket(item.basketItemId));
 	};
+	const item = useRef();
 	return (
 		<div className={classNameBasketList('basket-list')}>
 			<TransitionGroup component={null}>
@@ -31,6 +33,7 @@ const BasketList = function () {
 					return (
 						<CSSTransition
 							key={item.basketItemId}
+							nodeRef={item}
 							timeout={300}
 							classNames={{
 								exitActive: classNameBasketList('item__remove'),
