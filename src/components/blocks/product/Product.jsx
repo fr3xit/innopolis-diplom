@@ -11,7 +11,7 @@ const Product = function () {
 	const allProduct = useSelector(state => state.product.allProduct);
 	const { id } = useParams();
 
-	if (id > allProduct.length) {
+	if (id > allProduct.length || isNaN(id)) {
 		return <Navigate to="/notFound" />;
 	} else {
 		const {
