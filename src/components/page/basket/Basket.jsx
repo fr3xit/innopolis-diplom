@@ -1,5 +1,5 @@
+import { useNavigate } from 'react-router-dom';
 import moduleClassNameBind from 'classnames/bind';
-import { Link } from 'react-router-dom';
 
 import Layout from '@layouts/general/General.jsx';
 import Header from '@global/header/Header';
@@ -17,15 +17,16 @@ const classNameContainer = moduleClassNameBind.bind(stylesContainer);
 const classNameButtonUi = moduleClassNameBind.bind(stylesButtonUi);
 
 const Basket = function () {
+	const navigate = useNavigate();
+	const goBack = () => navigate(-1);
+
 	return (
 		<Layout
 			header={
 				<Container mods={[classNameContainer('container_middle')]}>
 					<Header
 						left={
-							<Link to={'/'}>
-								<BtnUi mods={[classNameButtonUi('button_arrow')]} />
-							</Link>
+							<BtnUi func={goBack} mods={[classNameButtonUi('button_arrow')]} />
 						}
 						center={<Title>Корзина с выбранными товарами</Title>}
 					/>

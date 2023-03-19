@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import moduleClassNameBind from 'classnames/bind';
 
 import Layout from '@layouts/general/General.jsx';
@@ -14,15 +14,16 @@ const classNameButtonUi = moduleClassNameBind.bind(stylesButtonUi);
 const classNameLayout = moduleClassNameBind.bind(stylesLayout);
 
 const Product = function ({ id = 1 }) {
+	const navigate = useNavigate();
+	const goBack = () => navigate(-1);
+
 	return (
 		<Layout
 			header={
 				<Container>
 					<Header
 						left={
-							<Link to={'/'}>
-								<BtnUi mods={[classNameButtonUi('button_arrow')]} />
-							</Link>
+							<BtnUi func={goBack} mods={[classNameButtonUi('button_arrow')]} />
 						}
 					/>
 				</Container>
