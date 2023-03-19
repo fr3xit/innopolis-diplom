@@ -18,6 +18,10 @@
 		transform: scale(1.03);
 	}
 
+	&:hover &__title {
+		color: var(--c-accent);
+	}
+
 	&__header {}
 
 	&__main {
@@ -33,10 +37,6 @@
 
 		&:active {
 			opacity: .3;
-		}
-
-		&:hover {
-			// color: var(--c-accent);
 		}
 	}
 
@@ -125,11 +125,4 @@
 		color: var(--c-accent);
 	}
 
-	&_horizontal &__amount {
-		display: none;
-	}
-
-	&_horizontal &__amount-separator {
-		display: none;
-	}
 }

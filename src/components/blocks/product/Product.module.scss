@@ -38,8 +38,14 @@
 
 	&__footer {
 		display: flex;
+		flex-wrap: wrap;
 		gap: 70px;
 		align-items: center;
+
+		@media (max-width: 560px) {
+			gap: 30px;
+			justify-content: center;
+		}
 	}
 
 	&__to-pay {
