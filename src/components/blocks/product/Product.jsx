@@ -1,19 +1,22 @@
 import { useSelector, useDispatch } from 'react-redux';
 import moduleClassNameBind from 'classnames/bind';
+import { useParams } from 'react-router-dom';
 
 import ToPay from '@modules/toPay/ToPay';
 import Button from '@modules/button/Button';
 
 import stylesProduct from './Product.module.scss';
 const classNameProduct = moduleClassNameBind.bind(stylesProduct);
-const Product = function ({ id }) {
+const Product = function () {
+	const { id } = useParams();
+	console.log(id);
 	const {
 		title,
 		price,
 		description: { long: desc },
 		img: { url },
 	} = useSelector(state =>
-		state.product.allProduct.find(item => item.productId === id)
+		state.product.allProduct.find(item => item.productId === Number(id))
 	);
 
 	return (

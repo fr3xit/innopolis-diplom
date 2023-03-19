@@ -1,5 +1,6 @@
 import moduleClassNameBind from 'classnames/bind';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { v4 as getID } from 'uuid';
 
 import {
@@ -7,6 +8,7 @@ import {
 	removeProductBasket,
 	toggleAddedProduct,
 } from '@store/slices/product/product';
+
 import Card from '@modules/card/Card.jsx';
 
 import stylesCatalogList from './CatalogList.module.scss';
@@ -20,6 +22,7 @@ const classNameButtonUi = moduleClassNameBind.bind(stylesButtonUi);
 const CatalogList = function () {
 	const dispatch = useDispatch();
 	const data = useSelector(state => state.product.allProduct);
+	const go = useNavigate();
 
 	const genButtonUiConfig = function (item, isAdded) {
 		return {
@@ -41,6 +44,7 @@ const CatalogList = function () {
 				return (
 					<Card
 						key={getID()}
+						funcCard={() => go(`/product/${item.productId}`)}
 						mods={[
 							classNameCatalogList('catalog-list__item'),
 							classNameCard('card_vertically'),
