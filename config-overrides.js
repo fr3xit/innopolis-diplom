@@ -8,6 +8,7 @@ const aliasMap = {
 	'@page': 'src/components/page',
 	'@global': 'src/components/global',
 	'@modules': 'src/components/modules',
+	'@groups': 'src/components/groups',
 	'@blocks': 'src/components/blocks',
 };
 

@@ -2,12 +2,12 @@ import { useSelector } from 'react-redux';
 import moduleClassNameBind from 'classnames/bind';
 import { useParams, Navigate } from 'react-router-dom';
 
-import ToPay from '@modules/toPay/ToPay';
-import Quantity from '@modules/quantity/Quantity';
 import Button from '@modules/button/Button';
+import SelectedPay from '@groups/selectedPay/SelectedPay';
 
 import stylesProduct from './Product.module.scss';
 const classNameProduct = moduleClassNameBind.bind(stylesProduct);
+
 const Product = function () {
 	const allProduct = useSelector(state => state.product.allProduct);
 	const { id } = useParams();
@@ -37,11 +37,7 @@ const Product = function () {
 					</div>
 
 					<div className={classNameProduct('product__footer')}>
-						<div className={classNameProduct('product__to-pay')}>
-							<ToPay sum={price} />
-							<Quantity amount={amount} units={units} />
-						</div>
-
+						<SelectedPay price={price} amount={amount} units={units} />
 						<Button>В корзину</Button>
 					</div>
 				</div>

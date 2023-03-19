@@ -2,7 +2,7 @@ import moduleClassNameBind from 'classnames/bind';
 
 import BtnUi from '@modules/button_ui/Button_ui';
 import ToPay from '@modules/toPay/ToPay';
-import Quantity from '@modules/quantity/Quantity';
+import SelectedPay from '@groups/selectedPay/SelectedPay';
 
 import testFunc from '@js/testFunc';
 import { getClasses } from '@js/tools.js';
@@ -27,6 +27,7 @@ const Card = function ({
 	mods,
 	funcCard = testFunc,
 }) {
+	const checkModHorizontal = mods.includes(classNameCard('card_horizontal'));
 	title = checkLongTitle(mods, title);
 
 	return (
@@ -47,16 +48,10 @@ const Card = function ({
 			<footer className={classNameCard('card__footer')}>
 				<div className={classNameCard('card__price')}>
 					<div className={classNameCard('card__result')}>
-						<ToPay
-							sum={price}
-							mods={[
-								mods.includes(classNameCard('card_horizontal'))
-									? classNameToPay('to-pay_middle')
-									: '',
-							]}
-						/>
-						{mods.includes(classNameCard('card_horizontal')) ? null : (
-							<Quantity amount={amount} units={units} />
+						{checkModHorizontal ? (
+							<ToPay sum={price} mods={[classNameToPay('to-pay_middle')]} />
+						) : (
+							<SelectedPay price={price} amount={amount} units={units} />
 						)}
 					</div>
 
