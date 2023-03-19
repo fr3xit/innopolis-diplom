@@ -6,6 +6,7 @@ import Container from '@global/container/Container';
 import Header from '@global/header/Header';
 import ProductItem from '@blocks/product/Product';
 import BtnUi from '@modules/button_ui/Button_ui';
+import HubHeaderRight from '@groups/hubHeaderRight/HubHeaderRight';
 
 import stylesLayout from '@layouts/simple/Simple.module.scss';
 import stylesButtonUi from '@modules/button_ui/Button_ui.module.scss';
@@ -25,6 +26,7 @@ const Product = function () {
 						left={
 							<BtnUi func={goBack} mods={[classNameButtonUi('button_arrow')]} />
 						}
+						right={<HubHeaderRight />}
 					/>
 				</Container>
 			}

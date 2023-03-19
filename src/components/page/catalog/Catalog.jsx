@@ -1,10 +1,8 @@
-import { Link } from 'react-router-dom';
-
 import Layout from '@layouts/general/General.jsx';
 import Container from '@global/container/Container';
 import Header from '@global/header/Header';
 import Title from '@global/header/elements/title/Title';
-import Basket from '@blocks/basket/Basket';
+import HubHeaderRight from '@groups/hubHeaderRight/HubHeaderRight';
 import CatalogList from '@blocks/catalogList/CatalogList';
 
 const Catalog = function () {
@@ -14,11 +12,7 @@ const Catalog = function () {
 				<Container>
 					<Header
 						left={<Title>наша продукция</Title>}
-						right={
-							<Link to={'/basket'}>
-								<Basket />
-							</Link>
-						}
+						right={<HubHeaderRight />}
 					/>
 				</Container>
 			}
