@@ -2,18 +2,39 @@
 	min-width: 200px;
 	min-height: 45px;
 
-	color: var(--c-dark);
 	font-size: 14px;
+	font-weight: 700;
+	border-radius: 5px;
+	transition: var(--t-animation) linear;
+
+	&:hover {
+		box-shadow: 0 0 10px var(--c-accent);
+		text-shadow: 0 0 10px var(--c-dark);
+	}
+}
+
+// Mods
+
+.button_hollow {
+	color: var(--c-accent);
+	border: 1px solid var(--c-accent);
+
+	&:hover {
+		color: var(--c-dark);
+		background-color: var(--c-accent);
+	}
+}
+
+.button_full {
+	color: var(--c-dark);
 	background-color: var(--c-accent);
 	border: 5px solid transparent;
-	transition: var(--t-animation) linear;
 
 	&:hover {
 		border-left-color: var(--c-dark);
 		border-right-color: var(--c-dark);
 		box-shadow: 0 0 10px var(--c-accent);
 		text-shadow: 0 0 10px var(--c-dark);
-
 	}
 
 	&:active {

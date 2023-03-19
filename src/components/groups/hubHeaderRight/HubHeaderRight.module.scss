@@ -1,4 +1,12 @@
 .hub-header-right {
 	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
 	gap: 25px;
+
+	padding-right: 10px;
+
+	@media (max-width: 560px) {
+		justify-content: center;
+	}
 }

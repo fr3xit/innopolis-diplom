@@ -6,8 +6,11 @@ import ToPay from '@modules/toPay/ToPay';
 import stylesFooter from './Footer.module.scss';
 
 import stylesToPay from '@modules/toPay/ToPay.module.scss';
+import stylesButton from '@modules/button/Button.module.scss';
+
 const classNameFooter = moduleClassNameBind.bind(stylesFooter);
 const classNameToPay = moduleClassNameBind.bind(stylesToPay);
+const classNameButton = moduleClassNameBind.bind(stylesButton);
 
 const Footer = function () {
 	const price = useSelector(state => state.product.basket.sum);
@@ -24,7 +27,7 @@ const Footer = function () {
 					]}
 				/>
 			</div>
-			<Button>Оформить заказ</Button>
+			<Button mods={[classNameButton('button_full')]}>Оформить заказ</Button>
 		</div>
 	);
 };

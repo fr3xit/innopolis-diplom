@@ -9,7 +9,7 @@ import { getClasses } from '@js/tools.js';
 import { checkLongTitle } from './cardTools';
 
 import stylesCard from './Card.module.scss';
-import stylesToPay from '../../modules/toPay/ToPay.module.scss';
+import stylesToPay from '@modules/toPay/ToPay.module.scss';
 
 const classNameCard = moduleClassNameBind.bind(stylesCard);
 const classNameToPay = moduleClassNameBind.bind(stylesToPay);

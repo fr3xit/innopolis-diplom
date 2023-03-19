@@ -6,7 +6,10 @@ import Button from '@modules/button/Button';
 import SelectedPay from '@groups/selectedPay/SelectedPay';
 
 import stylesProduct from './Product.module.scss';
+import stylesButton from '@modules/button/Button.module.scss';
+
 const classNameProduct = moduleClassNameBind.bind(stylesProduct);
+const classNameButton = moduleClassNameBind.bind(stylesButton);
 
 const Product = function () {
 	const allProduct = useSelector(state => state.product.allProduct);
@@ -38,7 +41,7 @@ const Product = function () {
 
 					<div className={classNameProduct('product__footer')}>
 						<SelectedPay price={price} amount={amount} units={units} />
-						<Button>В корзину</Button>
+						<Button mods={[classNameButton('button_full')]}>В корзину</Button>
 					</div>
 				</div>
 			</div>
