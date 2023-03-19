@@ -29,21 +29,3 @@
 	}
 
 }
-
-// Mods
-
-.page_transparent {
-	background: {
-		image: url('../../../../public/img/bg/bg-product.jpg');
-		repeat: no-repeat;
-		size: cover;
-	}
-
-	.page__header {
-		background-color: transparent;
-	}
-
-	.page__main {
-		height: 100vh;
-	}
-}

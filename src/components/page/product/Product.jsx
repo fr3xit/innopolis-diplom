@@ -1,19 +1,19 @@
 import { useNavigate } from 'react-router-dom';
 import moduleClassNameBind from 'classnames/bind';
 
-import Layout from '@layouts/general/General.jsx';
+import Layout from '@layouts/simple/Simple.jsx';
 import Container from '@global/container/Container';
 import Header from '@global/header/Header';
-import ProductItem from '../../blocks/product/Product';
+import ProductItem from '@blocks/product/Product';
 import BtnUi from '@modules/button_ui/Button_ui';
 
+import stylesLayout from '@layouts/simple/Simple.module.scss';
 import stylesButtonUi from '@modules/button_ui/Button_ui.module.scss';
-import stylesLayout from '../../layouts/general/General.module.scss';
 
 const classNameButtonUi = moduleClassNameBind.bind(stylesButtonUi);
 const classNameLayout = moduleClassNameBind.bind(stylesLayout);
 
-const Product = function ({ id = 1 }) {
+const Product = function () {
 	const navigate = useNavigate();
 	const goBack = () => navigate(-1);
 
@@ -30,10 +30,10 @@ const Product = function ({ id = 1 }) {
 			}
 			main={
 				<Container>
-					<ProductItem id={id} />
+					<ProductItem />
 				</Container>
 			}
-			mods={[classNameLayout('page_transparent')]}
+			mods={[classNameLayout('page_product')]}
 		/>
 	);
 };

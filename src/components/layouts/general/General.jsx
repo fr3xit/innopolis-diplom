@@ -1,13 +1,11 @@
 import { useEffect, useRef } from 'react';
 import moduleClassNameBind from 'classnames/bind';
 
-import { getClasses } from '@js/tools.js';
-
 import stylesGeneral from './General.module.scss';
 
 const classNameGeneral = moduleClassNameBind.bind(stylesGeneral);
 
-const General = function ({ header, main, footer, mods = [] }) {
+const General = function ({ header, main, footer }) {
 	const elementHeader = useRef();
 	const elementMain = useRef();
 	const elementFooter = useRef();
@@ -33,8 +31,7 @@ const General = function ({ header, main, footer, mods = [] }) {
 	}, []);
 
 	return (
-		// <div className={classNameGeneral('page')}>
-		<div className={getClasses(classNameGeneral('page'), ...mods)}>
+		<div className={classNameGeneral('page')}>
 			<header ref={elementHeader} className={classNameGeneral('page__header')}>
 				{header ? header : ''}
 			</header>
