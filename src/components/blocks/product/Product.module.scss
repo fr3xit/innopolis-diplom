@@ -2,6 +2,12 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	gap: 50px;
+	flex-wrap: wrap;
+
+	@media (max-width: 1120px) {
+		justify-content: center;
+	}
 
 	&>div {
 		flex: 0 1 500px;
@@ -34,5 +40,10 @@
 		display: flex;
 		gap: 70px;
 		align-items: center;
+	}
+
+	&__to-pay {
+		display: flex;
+		gap: 15px;
 	}
 }

@@ -1,0 +1,16 @@
+.quantity {
+	display: flex;
+	gap: 10px;
+
+	&__separator {
+		align-self: flex-end;
+
+		font-size: 21px;
+	}
+
+	&__amount {
+		align-self: flex-end;
+
+		font-size: 18px;
+	}
+}

@@ -1,8 +1,9 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import moduleClassNameBind from 'classnames/bind';
 import { useParams, Navigate } from 'react-router-dom';
 
 import ToPay from '@modules/toPay/ToPay';
+import Quantity from '@modules/quantity/Quantity';
 import Button from '@modules/button/Button';
 
 import stylesProduct from './Product.module.scss';
@@ -17,6 +18,8 @@ const Product = function () {
 		const {
 			title,
 			price,
+			amount,
+			units,
 			description: { long: desc },
 			img: { url },
 		} = allProduct.find(item => item.productId === Number(id));
@@ -34,7 +37,11 @@ const Product = function () {
 					</div>
 
 					<div className={classNameProduct('product__footer')}>
-						<ToPay sum={price} />
+						<div className={classNameProduct('product__to-pay')}>
+							<ToPay sum={price} />
+							<Quantity amount={amount} units={units} />
+						</div>
+
 						<Button>В корзину</Button>
 					</div>
 				</div>

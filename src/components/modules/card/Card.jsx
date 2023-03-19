@@ -2,10 +2,11 @@ import moduleClassNameBind from 'classnames/bind';
 
 import BtnUi from '@modules/button_ui/Button_ui';
 import ToPay from '@modules/toPay/ToPay';
+import Quantity from '@modules/quantity/Quantity';
 
 import testFunc from '@js/testFunc';
 import { getClasses } from '@js/tools.js';
-import { getUnits, checkLongTitle } from './cardTools';
+import { checkLongTitle } from './cardTools';
 
 import stylesCard from './Card.module.scss';
 import stylesToPay from '../../modules/toPay/ToPay.module.scss';
@@ -54,10 +55,9 @@ const Card = function ({
 									: '',
 							]}
 						/>
-						<span className={classNameCard('card__amount-separator')}>/</span>
-						<span className={classNameCard('card__amount')}>
-							{`${amount} ${getUnits(units)} .`}
-						</span>
+						{mods.includes(classNameCard('card_horizontal')) ? null : (
+							<Quantity amount={amount} units={units} />
+						)}
 					</div>
 
 					<BtnUi

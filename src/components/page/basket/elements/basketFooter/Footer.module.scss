@@ -1,13 +1,25 @@
 .basket-footer {
 	display: flex;
-	align-items: center;
+	flex-wrap: wrap;
+	gap: 30px;
 	padding: 20px 0;
+
+	@media (max-width: 560px) {
+		justify-content: center;
+	}
 
 	&__info {
 		display: flex;
+		align-items: center;
+
 		gap: 20px;
 		flex: 1 1 auto;
-		text-transform: uppercase;
+
 		font-size: 21px;
+		text-transform: uppercase;
+
+		@media (max-width: 560px) {
+			justify-content: center;
+		}
 	}
 }
