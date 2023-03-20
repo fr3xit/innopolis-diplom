@@ -50,6 +50,16 @@ export const productSlice = createSlice({
 			}
 		},
 
+		// Basket
+
+		checkProductInBasket: (state, action) => {
+			state.allProduct.forEach(item =>
+				item.productId === action.payload ? true : false
+			);
+		},
+
+		toggleProductInBasket: (state, action) => {},
+
 		addProductBasket: (state, action) => {
 			state.basket.list.push(getProductBasket(state, action));
 
@@ -74,6 +84,7 @@ export const {
 	toggleAddedProduct,
 	addProductBasket,
 	removeProductBasket,
+	checkProductInBasket,
 } = productSlice.actions;
 
 export default productSlice.reducer;
