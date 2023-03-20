@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import moduleClassNameBind from 'classnames/bind';
 import { useParams, Navigate } from 'react-router-dom';
-
 import {
 	addProductBasket,
 	removeProductBasket,
