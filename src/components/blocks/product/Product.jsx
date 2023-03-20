@@ -1,6 +1,12 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import moduleClassNameBind from 'classnames/bind';
 import { useParams, Navigate } from 'react-router-dom';
+
+import {
+	addProductBasket,
+	removeProductBasket,
+	toggleAddedProduct,
+} from '@store/slices/product/product';
 
 import Button from '@modules/button/Button';
 import SelectedPay from '@groups/selectedPay/SelectedPay';
@@ -14,11 +20,14 @@ const classNameButton = moduleClassNameBind.bind(stylesButton);
 const Product = function () {
 	const allProduct = useSelector(state => state.product.allProduct);
 	const { id } = useParams();
+	const dispatch = useDispatch();
 
 	if (id > allProduct.length || isNaN(id)) {
 		return <Navigate to="/notFound" />;
 	} else {
 		const {
+			productId,
+			added = false,
 			title,
 			price,
 			amount,
@@ -26,6 +35,15 @@ const Product = function () {
 			description: { long: desc },
 			img: { url },
 		} = allProduct.find(item => item.productId === Number(id));
+
+		const funcButton = () => {
+			dispatch(toggleAddedProduct(productId));
+			if (added) {
+				return dispatch(removeProductBasket(productId));
+			} else {
+				return dispatch(addProductBasket(productId));
+			}
+		};
 
 		return (
 			<div className={classNameProduct('product')}>
@@ -41,7 +59,11 @@ const Product = function () {
 
 					<div className={classNameProduct('product__footer')}>
 						<SelectedPay price={price} amount={amount} units={units} />
-						<Button mods={[classNameButton('button_full')]}>В корзину</Button>
+						<Button
+							func={() => funcButton()}
+							mods={[classNameButton('button_full')]}>
+							{added ? 'Удалить' : 'В корзину'}
+						</Button>
 					</div>
 				</div>
 			</div>
