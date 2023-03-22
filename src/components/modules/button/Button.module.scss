@@ -7,6 +7,10 @@
 	border-radius: 5px;
 	transition: var(--t-animation) linear;
 
+	&[disabled] {
+		opacity: 0.5;
+	}
+
 	&:hover {
 		box-shadow: 0 0 10px var(--c-accent);
 		text-shadow: 0 0 10px var(--c-dark);

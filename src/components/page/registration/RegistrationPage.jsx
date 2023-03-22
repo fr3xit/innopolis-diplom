@@ -7,8 +7,11 @@ import FormRegAut from '@blocks/formRegAut/FormRegAut';
 import stylesLayout from '@layouts/simple/Simple.module.scss';
 const classNameLayout = moduleClassNameBind.bind(stylesLayout);
 
-const registration = () => {
+const registration = ({ email, password, agree }) => {
 	console.log('registration');
+	console.log('email = ', email);
+	console.log('password = ', password);
+	console.log('agree = ', agree);
 };
 
 const RegistrationPage = function () {

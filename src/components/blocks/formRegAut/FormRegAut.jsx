@@ -1,6 +1,8 @@
 import moduleClassNameBind from 'classnames/bind';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
+import { emailValidation, passwordValidation } from '@tools/formTools';
 
 import Button from '@modules/button/Button';
 import ErrorForm from './elements/error/ErrorForm';
@@ -19,6 +21,8 @@ const FormRegAut = function ({
 	link: { href: linkHref, text: linkText },
 	func,
 }) {
+	const messageEmpty = 'Поле не должно быть пустым';
+
 	const [emailValue, setEmailValue] = useState();
 	const [passwordValue, setPasswordValue] = useState();
 	const [checkedAgree, setCheckedAgree] = useState(false);
@@ -27,17 +31,84 @@ const FormRegAut = function ({
 	const [passwordIsCustom, setPasswordIsCustom] = useState(false);
 	const [formCustom, setFormCustom] = useState(false);
 
-	const [errorValidationEmail, setErrorValidationEmail] = useState(
-		'Поле не должно быть пустым'
-	);
-	const [errorValidationPassword, setErrorValidationPassword] = useState(
-		'Поле не должно быть пустым'
-	);
+	const [formValid, setFormValid] = useState(false);
+	const [errorValidationEmail, setErrorValidationEmail] = useState();
+	const [errorValidationPassword, setErrorValidationPassword] = useState();
 	const [errorForm, setErrorForm] = useState('Логин или пароль неверен');
 
-	const handler = event => {
+	useEffect(() => {
+		console.log('errorValidationEmail= ', errorValidationEmail);
+		console.log('errorValidationPassword= ', errorValidationPassword);
+
+		if (
+			errorValidationEmail ||
+			errorValidationPassword ||
+			!emailIsCustom ||
+			!passwordIsCustom
+		) {
+			setFormValid(false);
+		} else {
+			setFormValid(true);
+		}
+	}, [
+		errorValidationEmail,
+		errorValidationPassword,
+		emailIsCustom,
+		passwordIsCustom,
+	]);
+	const getData = () => {
+		return {
+			email: emailValue,
+			password: passwordValue,
+			agree: checkedAgree,
+		};
+	};
+
+	const blurHandler = event => {
+		switch (event.target.name) {
+			case 'email': {
+				setEmailIsCustom(true);
+				break;
+			}
+			case 'password': {
+				setPasswordIsCustom(true);
+				break;
+			}
+		}
+	};
+
+	const emailHandler = event => {
+		let email = event.target.value;
+		const { errorDesc } = emailValidation(email);
+
+		setEmailValue(email);
+
+		if (email.length > 0) {
+			setErrorValidationEmail(errorDesc);
+		} else if (email.length <= 0) {
+			setErrorValidationEmail(messageEmpty);
+		} else {
+			setErrorValidationEmail('');
+		}
+	};
+
+	const passwordHandler = event => {
+		let password = event.target.value;
+		const { errorDesc } = passwordValidation(password);
+		setPasswordValue(password);
+
+		if (password.length > 0) {
+			setErrorValidationPassword(errorDesc);
+		} else if (password.length <= 0) {
+			setErrorValidationPassword(messageEmpty);
+		} else {
+			setErrorValidationPassword('');
+		}
+	};
+
+	const submitHandler = event => {
 		event.preventDefault();
-		func();
+		func(getData());
 	};
 
 	return (
@@ -53,7 +124,8 @@ const FormRegAut = function ({
 					<div className={classNameFormRegAut('reg-aut__input-box')}>
 						<label>
 							<input
-								onChange={event => setEmailValue(event.target.value)}
+								onBlur={e => blurHandler(e)}
+								onChange={e => emailHandler(e)}
 								type="email"
 								name="email"
 								value={emailValue}
@@ -70,7 +142,8 @@ const FormRegAut = function ({
 					<div className={classNameFormRegAut('reg-aut__input-box')}>
 						<label>
 							<input
-								onChange={event => setPasswordValue(event.target.value)}
+								onBlur={e => blurHandler(e)}
+								onChange={e => passwordHandler(e)}
 								type="password"
 								name="password"
 								value={passwordValue}
@@ -111,7 +184,8 @@ const FormRegAut = function ({
 				</div>
 
 				<Button
-					func={e => handler(e)}
+					func={e => submitHandler(e)}
+					disabled={formValid}
 					submit={true}
 					mods={[
 						classNameButton('button_full'),
