@@ -4,8 +4,8 @@ import BtnUi from '@modules/button_ui/Button_ui';
 import ToPay from '@modules/toPay/ToPay';
 import SelectedPay from '@groups/selectedPay/SelectedPay';
 
-import testFunc from '@js/testFunc';
-import { getClasses } from '@js/tools.js';
+import testFunc from '@tools/testFunc';
+import { getClasses } from '@tools/restTools.js';
 import { checkLongTitle } from './cardTools';
 
 import stylesCard from './Card.module.scss';

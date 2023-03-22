@@ -1,7 +1,7 @@
 import moduleClassNameBind from 'classnames/bind';
 import { useSelector } from 'react-redux';
 
-import { declensionWord } from '@js/tools.js';
+import { declensionWord } from '@tools/restTools.js';
 import ToPay from '@modules/toPay/ToPay';
 import stylesBasket from './Basket.module.scss';
 

@@ -1,6 +1,6 @@
 import moduleClassNameBind from 'classnames/bind';
 
-import { getClasses } from '@js/tools.js';
+import { getClasses } from '@tools/restTools.js';
 import stylesToPay from './ToPay.module.scss';
 
 const classNameToPay = moduleClassNameBind.bind(stylesToPay);

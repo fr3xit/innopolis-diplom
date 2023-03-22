@@ -1,4 +1,4 @@
-import { getClasses } from '@js/tools.js';
+import { getClasses } from '@tools/restTools.js';
 
 export const handler = (event, func, toggle) => {
 	if (func) {

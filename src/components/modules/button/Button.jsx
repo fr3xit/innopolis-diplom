@@ -1,7 +1,7 @@
 import moduleClassNameBind from 'classnames/bind';
 
-import { getClasses } from '@js/tools.js';
-import testFunc from '@js/testFunc';
+import { getClasses } from '@tools/restTools.js';
+import testFunc from '@tools/testFunc';
 import stylesButton from './Button.module.scss';
 
 const classNameButton = moduleClassNameBind.bind(stylesButton);

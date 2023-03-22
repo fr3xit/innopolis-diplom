@@ -1,6 +1,6 @@
 import moduleClassNameBind from 'classnames/bind';
 
-import { getClasses } from '@js/tools.js';
+import { getClasses } from '@tools/restTools.js';
 import stylesContainer from './Container.module.scss';
 
 const classNameContainer = moduleClassNameBind.bind(stylesContainer);

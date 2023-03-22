@@ -1,6 +1,6 @@
 import moduleClassNameBind from 'classnames/bind';
 
-import { getClasses } from '@js/tools.js';
+import { getClasses } from '@tools/restTools.js';
 import stylesSimple from './Simple.module.scss';
 
 const classNameSimple = moduleClassNameBind.bind(stylesSimple);
