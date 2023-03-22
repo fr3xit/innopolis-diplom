@@ -20,7 +20,7 @@ const AuthorizationPage = function () {
 						title="Вход"
 						submitValue="Войти"
 						link={{ href: '/registration', text: 'Зарегистрироваться' }}
-						handler={logIn}
+						func={logIn}
 					/>
 				</Container>
 			}

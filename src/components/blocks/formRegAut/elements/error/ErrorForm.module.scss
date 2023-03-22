@@ -1,0 +1,17 @@
+.form-error {
+	position: absolute;
+	padding-left: 20px;
+	bottom: 5px;
+
+	color: #FF0B0B;
+	font-size: 12px;
+	font-weight: 300;
+
+	&_center {
+		bottom: 10px;
+		width: 100%;
+		padding-left: 0px;
+
+		text-align: center;
+	}
+}

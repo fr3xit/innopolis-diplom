@@ -6,11 +6,11 @@ import stylesButton from './Button.module.scss';
 
 const classNameButton = moduleClassNameBind.bind(stylesButton);
 
-const Button = function ({ children, mods = [], func = testFunc }) {
+const Button = function ({ children, submit, mods = [], func = testFunc }) {
 	return (
 		<>
-			{/* <button className={classNameButton('button')} onClick={func}> */}
 			<button
+				type={submit ? 'submit' : ''}
 				onClick={func}
 				className={getClasses(classNameButton('button'), ...mods)}>
 				<span>{children}</span>

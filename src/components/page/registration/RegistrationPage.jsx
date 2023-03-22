@@ -8,7 +8,7 @@ import stylesLayout from '@layouts/simple/Simple.module.scss';
 const classNameLayout = moduleClassNameBind.bind(stylesLayout);
 
 const registration = () => {
-	alert('registration');
+	console.log('registration');
 };
 
 const RegistrationPage = function () {
@@ -20,7 +20,7 @@ const RegistrationPage = function () {
 						title="Регистрация"
 						submitValue="Зарегистрироваться"
 						link={{ href: '/authorization', text: 'Авторизоваться' }}
-						handler={registration}
+						func={registration}
 					/>
 				</Container>
 			}
