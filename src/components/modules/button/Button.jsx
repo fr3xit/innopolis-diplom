@@ -17,7 +17,7 @@ const Button = function ({
 		<>
 			<button
 				type={submit ? 'submit' : ''}
-				disabled={!disabled}
+				disabled={disabled}
 				onClick={func}
 				className={getClasses(classNameButton('button'), ...mods)}>
 				<span>{children}</span>

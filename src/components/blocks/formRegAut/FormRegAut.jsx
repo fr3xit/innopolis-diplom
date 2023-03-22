@@ -23,8 +23,8 @@ const FormRegAut = function ({
 }) {
 	const messageEmpty = 'Поле не должно быть пустым';
 
-	const [emailValue, setEmailValue] = useState();
-	const [passwordValue, setPasswordValue] = useState();
+	const [emailValue, setEmailValue] = useState('');
+	const [passwordValue, setPasswordValue] = useState('');
 	const [checkedAgree, setCheckedAgree] = useState(false);
 
 	const [emailIsCustom, setEmailIsCustom] = useState(false);
@@ -93,6 +93,7 @@ const FormRegAut = function ({
 	const passwordHandler = event => {
 		let password = event.target.value;
 		const { errorDesc } = passwordValidation(password);
+
 		setPasswordValue(password);
 
 		if (password.length > 0) {
@@ -122,11 +123,11 @@ const FormRegAut = function ({
 					<div className={classNameFormRegAut('reg-aut__input-box')}>
 						<label>
 							<input
-								onBlur={e => blurHandler(e)}
 								onChange={e => emailHandler(e)}
+								onBlur={e => blurHandler(e)}
+								value={emailValue}
 								type="email"
 								name="email"
-								value={emailValue}
 								placeholder="Логин"
 							/>
 						</label>
@@ -140,11 +141,11 @@ const FormRegAut = function ({
 					<div className={classNameFormRegAut('reg-aut__input-box')}>
 						<label>
 							<input
-								onBlur={e => blurHandler(e)}
 								onChange={e => passwordHandler(e)}
+								onBlur={e => blurHandler(e)}
+								value={passwordValue}
 								type="password"
 								name="password"
-								value={passwordValue}
 								placeholder="Пароль"
 							/>
 						</label>
@@ -183,7 +184,7 @@ const FormRegAut = function ({
 
 				<Button
 					func={e => submitHandler(e)}
-					disabled={formValid}
+					disabled={!formValid}
 					submit={true}
 					mods={[
 						classNameButton('button_full'),
