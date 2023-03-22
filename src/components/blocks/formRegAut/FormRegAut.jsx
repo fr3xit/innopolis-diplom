@@ -37,9 +37,6 @@ const FormRegAut = function ({
 	const [errorForm, setErrorForm] = useState('Логин или пароль неверен');
 
 	useEffect(() => {
-		console.log('errorValidationEmail= ', errorValidationEmail);
-		console.log('errorValidationPassword= ', errorValidationPassword);
-
 		if (
 			errorValidationEmail ||
 			errorValidationPassword ||
@@ -56,6 +53,7 @@ const FormRegAut = function ({
 		emailIsCustom,
 		passwordIsCustom,
 	]);
+
 	const getData = () => {
 		return {
 			email: emailValue,
