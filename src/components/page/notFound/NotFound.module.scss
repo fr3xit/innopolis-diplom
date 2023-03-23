@@ -1,0 +1,15 @@
+.not-found {
+	display: flex;
+	justify-content: center;
+
+	text-align: center;
+
+	&__inner {}
+
+	&__title {
+		margin-bottom: 30px;
+
+		font-size: 31px;
+		font-weight: 700;
+	}
+}
