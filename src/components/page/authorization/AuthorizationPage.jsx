@@ -1,4 +1,5 @@
 import moduleClassNameBind from 'classnames/bind';
+import { useNavigate } from 'react-router-dom';
 
 import { authorization } from '@tools/formTools';
 import Layout from '@layouts/simple/Simple.jsx';
@@ -9,6 +10,13 @@ import stylesLayout from '@layouts/simple/Simple.module.scss';
 const classNameLayout = moduleClassNameBind.bind(stylesLayout);
 
 const AuthorizationPage = function () {
+	const go = useNavigate();
+	const authorizationHandler = user => {
+		authorization(user);
+		console.log('test');
+		go('/');
+	};
+
 	return (
 		<Layout
 			main={
@@ -17,7 +25,7 @@ const AuthorizationPage = function () {
 						title="Вход"
 						submitValue="Войти"
 						link={{ href: '/registration', text: 'Зарегистрироваться' }}
-						func={authorization}
+						func={authorizationHandler}
 					/>
 				</Container>
 			}
