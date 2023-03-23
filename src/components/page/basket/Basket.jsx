@@ -25,6 +25,11 @@ const classNameButton = moduleClassNameBind.bind(stylesButton);
 const Basket = function () {
 	const navigate = useNavigate();
 	const goBack = () => navigate(-1);
+	const go = useNavigate();
+	const logHandler = () => {
+		logOut();
+		go('/authorization');
+	};
 
 	return (
 		<RequireAuth>
@@ -41,7 +46,9 @@ const Basket = function () {
 							}
 							center={<Title>Корзина с выбранными товарами</Title>}
 							right={
-								<Button func={logOut} mods={[classNameButton('button_hollow')]}>
+								<Button
+									func={logHandler}
+									mods={[classNameButton('button_hollow')]}>
 									Выйти
 								</Button>
 							}

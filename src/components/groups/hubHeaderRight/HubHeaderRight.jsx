@@ -1,5 +1,5 @@
 import moduleClassNameBind from 'classnames/bind';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { logOut } from '@tools/formTools';
 
@@ -13,12 +13,18 @@ const classNameHubHeaderRight = moduleClassNameBind.bind(stylesHubHeaderRight);
 const classNameButton = moduleClassNameBind.bind(stylesButton);
 
 const HubHeaderRight = function () {
+	const go = useNavigate();
+	const logHandler = () => {
+		logOut();
+		go('/authorization');
+	};
+
 	return (
 		<div className={classNameHubHeaderRight('hub-header-right')}>
 			<Link to={'/basket'}>
 				<Basket />
 			</Link>
-			<Button func={logOut} mods={[classNameButton('button_hollow')]}>
+			<Button func={logHandler} mods={[classNameButton('button_hollow')]}>
 				Выйти
 			</Button>
 		</div>
