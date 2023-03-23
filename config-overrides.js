@@ -4,6 +4,7 @@ const aliasMap = {
 	'@data': 'src/data',
 	'@store': 'src/store',
 	'@tools': 'src/tools',
+	'@hooks': 'src/hooks',
 	'@layouts': 'src/components/layouts',
 	'@page': 'src/components/page',
 	'@global': 'src/components/global',

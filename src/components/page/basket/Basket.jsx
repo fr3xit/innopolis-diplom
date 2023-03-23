@@ -3,6 +3,7 @@ import moduleClassNameBind from 'classnames/bind';
 
 import { logOut } from '@tools/formTools';
 
+import RequireAuth from '@hooks/RequireAuth';
 import Layout from '@layouts/general/General.jsx';
 import Header from '@global/header/Header';
 import Title from '@global/header/elements/title/Title';
@@ -26,35 +27,41 @@ const Basket = function () {
 	const goBack = () => navigate(-1);
 
 	return (
-		<Layout
-			header={
-				<Container>
-					<Header
-						left={
-							<BtnUi func={goBack} mods={[classNameButtonUi('button_arrow')]} />
-						}
-						center={<Title>Корзина с выбранными товарами</Title>}
-						right={
-							<Button func={logOut} mods={[classNameButton('button_hollow')]}>
-								Выйти
-							</Button>
-						}
-					/>
-				</Container>
-			}
-			main={
-				<Container mods={[classNameContainer('container_middle')]}>
-					<BasketList />
-				</Container>
-			}
-			footer={
-				<Footer>
-					<Container mods={[classNameContainer('container_middle')]}>
-						<FooterBasket />
+		<RequireAuth>
+			{' '}
+			<Layout
+				header={
+					<Container>
+						<Header
+							left={
+								<BtnUi
+									func={goBack}
+									mods={[classNameButtonUi('button_arrow')]}
+								/>
+							}
+							center={<Title>Корзина с выбранными товарами</Title>}
+							right={
+								<Button func={logOut} mods={[classNameButton('button_hollow')]}>
+									Выйти
+								</Button>
+							}
+						/>
 					</Container>
-				</Footer>
-			}
-		/>
+				}
+				main={
+					<Container mods={[classNameContainer('container_middle')]}>
+						<BasketList />
+					</Container>
+				}
+				footer={
+					<Footer>
+						<Container mods={[classNameContainer('container_middle')]}>
+							<FooterBasket />
+						</Container>
+					</Footer>
+				}
+			/>
+		</RequireAuth>
 	);
 };
 

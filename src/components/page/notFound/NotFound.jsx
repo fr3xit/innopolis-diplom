@@ -1,16 +1,19 @@
 import Layout from '@layouts/general/General.jsx';
 import Container from '@global/container/Container';
+import RequireAuth from '@hooks/RequireAuth';
 
 const NotFound = function () {
 	return (
-		<Layout
-			main={
-				<Container>
-					<p>Ничего нет, все украли!</p>
-					<img src="/img/notFound.gif" alt="notFound" />
-				</Container>
-			}
-		/>
+		<RequireAuth>
+			<Layout
+				main={
+					<Container>
+						<p>Ничего нет, все украли!</p>
+						<img src="/img/notFound.gif" alt="notFound" />
+					</Container>
+				}
+			/>
+		</RequireAuth>
 	);
 };
 

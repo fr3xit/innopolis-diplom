@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import moduleClassNameBind from 'classnames/bind';
 
+import RequireAuth from '@hooks/RequireAuth';
 import Layout from '@layouts/simple/Simple.jsx';
 import Container from '@global/container/Container';
 import Header from '@global/header/Header';
@@ -19,24 +20,29 @@ const Product = function () {
 	const goBack = () => navigate(-1);
 
 	return (
-		<Layout
-			header={
-				<Container>
-					<Header
-						left={
-							<BtnUi func={goBack} mods={[classNameButtonUi('button_arrow')]} />
-						}
-						right={<HubHeaderRight />}
-					/>
-				</Container>
-			}
-			main={
-				<Container>
-					<ProductItem />
-				</Container>
-			}
-			mods={[classNameLayout('page_product')]}
-		/>
+		<RequireAuth>
+			<Layout
+				header={
+					<Container>
+						<Header
+							left={
+								<BtnUi
+									func={goBack}
+									mods={[classNameButtonUi('button_arrow')]}
+								/>
+							}
+							right={<HubHeaderRight />}
+						/>
+					</Container>
+				}
+				main={
+					<Container>
+						<ProductItem />
+					</Container>
+				}
+				mods={[classNameLayout('page_product')]}
+			/>
+		</RequireAuth>
 	);
 };
 
