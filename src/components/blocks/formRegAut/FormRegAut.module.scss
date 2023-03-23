@@ -43,6 +43,12 @@
 
 		text-align: right;
 		color: var(--c-accent);
+		transition: var(--t-animation) linear;
+
+		&:hover {
+			text-shadow: 0 0 10px var(--c-accent);
+			text-decoration: underline;
+		}
 	}
 
 	&__title {
