@@ -34,7 +34,7 @@ const FormRegAut = function ({
 	const [formValid, setFormValid] = useState(false);
 	const [errorValidationEmail, setErrorValidationEmail] = useState();
 	const [errorValidationPassword, setErrorValidationPassword] = useState();
-	const [errorForm, setErrorForm] = useState('Логин или пароль неверен');
+	const [errorForm, setErrorForm] = useState(false);
 
 	useEffect(() => {
 		if (
@@ -107,7 +107,13 @@ const FormRegAut = function ({
 
 	const submitHandler = event => {
 		event.preventDefault();
-		func(getData());
+		const result = func(getData());
+
+		if (!result.status) {
+			setErrorForm(result.errorDesc);
+		} else {
+			setErrorForm(false);
+		}
 	};
 
 	return (
@@ -128,7 +134,7 @@ const FormRegAut = function ({
 								value={emailValue}
 								type="email"
 								name="email"
-								placeholder="Логин"
+								placeholder="Email"
 							/>
 						</label>
 						{emailIsCustom && errorValidationEmail ? (
@@ -172,7 +178,7 @@ const FormRegAut = function ({
 				</label>
 
 				<div className={classNameFormRegAut('reg-aut__error')}>
-					{formCustom && errorForm ? (
+					{errorForm ? (
 						<ErrorForm
 							text={errorForm}
 							mods={[classNameErrorForm('form-error_center')]}

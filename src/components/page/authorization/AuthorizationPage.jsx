@@ -12,9 +12,10 @@ const classNameLayout = moduleClassNameBind.bind(stylesLayout);
 const AuthorizationPage = function () {
 	const go = useNavigate();
 	const authorizationHandler = user => {
-		authorization(user);
-		console.log('test');
-		go('/');
+		const result = authorization(user);
+		if (result.status === true) go('/');
+
+		return result;
 	};
 
 	return (

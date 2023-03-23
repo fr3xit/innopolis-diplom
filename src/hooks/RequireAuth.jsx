@@ -5,8 +5,10 @@ import { getLocalStorage } from '@tools/restTools';
 const RequireAuth = function ({ children }) {
 	if (getLocalStorage('authorization')) {
 		return children;
-	} else {
+	} else if (getLocalStorage('users')) {
 		return <Navigate to="/authorization" />;
+	} else {
+		return <Navigate to="/registration" />;
 	}
 };
 

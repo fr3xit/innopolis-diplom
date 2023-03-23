@@ -59,29 +59,43 @@ export const passwordValidation = pass => {
 };
 
 export const registration = user => {
+	let result = { status: true };
+
 	let usersDataBase = getLocalStorage('users');
 
 	if (!usersDataBase) {
 		usersDataBase = [];
 	}
 
-	usersDataBase.push(user);
-	writeLocalStorage('users', usersDataBase);
+	const checkUser = usersDataBase.find(item =>
+		item ? user.email === item.email : false
+	);
+
+	if (!checkUser) {
+		usersDataBase.push(user);
+		writeLocalStorage('users', usersDataBase);
+	} else {
+		result.status = false;
+		result.errorDesc = 'Пользователь с такой почтой уже зарегистрирован';
+	}
+
+	return result;
 };
 
 export const authorization = user => {
 	let usersDataBase = getLocalStorage('users');
+	let result = { status: true };
+	const userCurrent = usersDataBase.find(item => user.email === item.email);
 
-	if (!usersDataBase) {
-		return 'Логин или пароль неверен';
+	if (userCurrent.password === user.password) {
+		writeLocalStorage('authorization', 'true');
+		alert('Авторизация прошла успешно');
 	} else {
-		const userCurrent = usersDataBase.find(item => user.email === item.email);
-
-		if (userCurrent.password === user.password) {
-			writeLocalStorage('authorization', 'true');
-			alert('Авторизация прошла успешно');
-		}
+		result.status = false;
+		result.errorDesc = 'Логин или пароль неверен';
 	}
+
+	return result;
 };
 
 export const logOut = () => localStorage.removeItem('authorization');

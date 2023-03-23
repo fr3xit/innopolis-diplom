@@ -9,6 +9,11 @@ import stylesLayout from '@layouts/simple/Simple.module.scss';
 const classNameLayout = moduleClassNameBind.bind(stylesLayout);
 
 const RegistrationPage = function () {
+	const registrationHandler = user => {
+		const result = registration(user);
+
+		return result;
+	};
 	return (
 		<Layout
 			main={
@@ -17,7 +22,7 @@ const RegistrationPage = function () {
 						title="Регистрация"
 						submitValue="Зарегистрироваться"
 						link={{ href: '/authorization', text: 'Авторизоваться' }}
-						func={registration}
+						func={registrationHandler}
 					/>
 				</Container>
 			}
