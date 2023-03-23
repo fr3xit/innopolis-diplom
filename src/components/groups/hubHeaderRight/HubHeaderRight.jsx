@@ -1,6 +1,8 @@
 import moduleClassNameBind from 'classnames/bind';
 import { Link } from 'react-router-dom';
 
+import { logOut } from '@tools/formTools';
+
 import Basket from '@blocks/basket/Basket';
 import Button from '@modules/button/Button';
 
@@ -16,7 +18,9 @@ const HubHeaderRight = function () {
 			<Link to={'/basket'}>
 				<Basket />
 			</Link>
-			<Button mods={[classNameButton('button_hollow')]}>Выйти</Button>
+			<Button func={logOut} mods={[classNameButton('button_hollow')]}>
+				Выйти
+			</Button>
 		</div>
 	);
 };

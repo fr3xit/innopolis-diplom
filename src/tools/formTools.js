@@ -1,4 +1,4 @@
-import { getLocalStorage } from '@tools/restTools';
+import { getLocalStorage, writeLocalStorage } from '@tools/restTools';
 
 export const emailValidation = email => {
 	const re =
@@ -65,6 +65,23 @@ export const registration = user => {
 		usersDataBase = [];
 	}
 
-	console.log(usersDataBase);
-	console.log(user);
+	usersDataBase.push(user);
+	writeLocalStorage('users', usersDataBase);
 };
+
+export const authorization = user => {
+	let usersDataBase = getLocalStorage('users');
+
+	if (!usersDataBase) {
+		return 'Логин или пароль неверен';
+	} else {
+		const userCurrent = usersDataBase.find(item => user.email === item.email);
+
+		if (userCurrent.password === user.password) {
+			writeLocalStorage('authorization', 'true');
+			alert('Авторизация прошла успешно');
+		}
+	}
+};
+
+export const logOut = () => localStorage.removeItem('authorization');

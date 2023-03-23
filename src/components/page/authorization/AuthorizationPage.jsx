@@ -1,15 +1,12 @@
 import moduleClassNameBind from 'classnames/bind';
 
+import { authorization } from '@tools/formTools';
 import Layout from '@layouts/simple/Simple.jsx';
 import Container from '@global/container/Container';
 import FormRegAut from '@blocks/formRegAut/FormRegAut';
 
 import stylesLayout from '@layouts/simple/Simple.module.scss';
 const classNameLayout = moduleClassNameBind.bind(stylesLayout);
-
-const logIn = () => {
-	alert('LogIn');
-};
 
 const AuthorizationPage = function () {
 	return (
@@ -20,7 +17,7 @@ const AuthorizationPage = function () {
 						title="Вход"
 						submitValue="Войти"
 						link={{ href: '/registration', text: 'Зарегистрироваться' }}
-						func={logIn}
+						func={authorization}
 					/>
 				</Container>
 			}
