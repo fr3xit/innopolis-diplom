@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import moduleClassNameBind from 'classnames/bind';
 
 import { registration } from '@tools/formTools';
@@ -9,8 +10,15 @@ import stylesLayout from '@layouts/simple/Simple.module.scss';
 const classNameLayout = moduleClassNameBind.bind(stylesLayout);
 
 const RegistrationPage = function () {
+	const go = useNavigate();
+
 	const registrationHandler = user => {
 		const result = registration(user);
+
+		if (result.status) {
+			go('/authorization');
+			alert('Регистрация прошла успешно, авторизуйтесь');
+		}
 
 		return result;
 	};
