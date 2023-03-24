@@ -1,5 +1,7 @@
 import moduleClassNameBind from 'classnames/bind';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { clearBasket } from '@store/slices/product/product';
 
 import Button from '@modules/button/Button';
 import ToPay from '@modules/toPay/ToPay';
@@ -13,7 +15,13 @@ const classNameToPay = moduleClassNameBind.bind(stylesToPay);
 const classNameButton = moduleClassNameBind.bind(stylesButton);
 
 const Footer = function () {
+	const dispatch = useDispatch();
 	const price = useSelector(state => state.product.basket.sum);
+
+	const handler = () => {
+		dispatch(clearBasket());
+		alert('Заказ оформлен, ожидайте');
+	};
 
 	return (
 		<div className={classNameFooter('basket-footer')}>
@@ -27,7 +35,9 @@ const Footer = function () {
 					]}
 				/>
 			</div>
-			<Button mods={[classNameButton('button_full')]}>Оформить заказ</Button>
+			<Button func={handler} mods={[classNameButton('button_full')]}>
+				Оформить заказ
+			</Button>
 		</div>
 	);
 };
