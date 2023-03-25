@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 
+import { TestPage } from '@page/test/TestPage';
 import Catalog from '@page/catalog/Catalog';
 import Product from '@page/product/Product';
 import Basket from '@page/basket/Basket';
@@ -8,6 +9,10 @@ import RegistrationPage from '@page/registration/RegistrationPage';
 import NotFound from '@page/notFound/NotFound';
 
 export const router = createBrowserRouter([
+	{
+		path: '/test',
+		element: <TestPage />,
+	},
 	{
 		path: '/',
 		element: <Catalog />,
