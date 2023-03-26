@@ -36,6 +36,7 @@ h2 {
 }
 
 .my-node-exit-active {
+	border: 5px solid red;
 	opacity: 0;
 	transition: opacity 200ms;
 }

@@ -89,7 +89,6 @@ export const authorization = user => {
 
 	if (userCurrent.password === user.password) {
 		writeLocalStorage('authorization', 'true');
-		alert('Авторизация прошла успешно');
 	} else {
 		result.status = false;
 		result.errorDesc = 'Логин или пароль неверен';

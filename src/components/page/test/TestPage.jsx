@@ -1,22 +1,20 @@
-import ReactDOM from 'react-dom/client';
+import { useState } from 'react';
 
 import { Modal } from '@blocks/modal/Modal';
 
 import './TestPage.scss';
 
-// const container = document.getElementById('root');
-// const root = ReactDOM.createRoot(container);
-// const root = ReactDOM.createRoot(document.getElementById('root'));
 export const TestPage = function () {
+	const [open, setOpen] = useState(false);
+
 	const handler = () => {
-		// root.render(<Modal />);
-		// ReactDOM.render(<Modal />, document.getElementById('root'));
+		setOpen(!open);
 	};
+
 	return (
-		<button
-			onClick={handler}
-			style={{ margin: '0 auto', color: 'red', padding: '10px' }}>
-			Показать
-		</button>
+		<>
+			<button onClick={handler}>Показать</button>
+			<Modal open={open} onClose={() => setOpen(false)} />
+		</>
 	);
 };
