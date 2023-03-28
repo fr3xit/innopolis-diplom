@@ -22,7 +22,15 @@
 		color: var(--c-accent);
 	}
 
+	&:hover &__header img {
+		transform: scale(1.03);
+	}
+
 	&__header {}
+
+	&__header img {
+		transition: var(--t-animation) linear;
+	}
 
 	&__main {
 		flex: 1 1 auto;
