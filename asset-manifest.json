@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/innopolis-diplom/static/css/main.c626b83e.css",
+    "main.js": "/innopolis-diplom/static/js/main.3f63587b.js",
+    "static/media/b-restaurant.jpg": "/innopolis-diplom/static/media/b-restaurant.07f71336782d5c869aa9.jpg",
+    "static/media/bg-product.jpg": "/innopolis-diplom/static/media/bg-product.baaf10e609177d1fc058.jpg",
+    "static/media/basket.svg": "/innopolis-diplom/static/media/basket.72e035aa7c2acbb899c9.svg",
+    "index.html": "/innopolis-diplom/index.html",
+    "main.c626b83e.css.map": "/innopolis-diplom/static/css/main.c626b83e.css.map",
+    "main.3f63587b.js.map": "/innopolis-diplom/static/js/main.3f63587b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c626b83e.css",
+    "static/js/main.3f63587b.js"
+  ]
+}
